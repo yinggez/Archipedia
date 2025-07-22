@@ -72,7 +72,7 @@ function App() {
 
   const getImageUrl = (path) => {
     const { data } = supabase.storage.from('mediafiles').getPublicUrl(path);
-    console.log(data);
+
     return data.publicUrl;
   };
   
@@ -162,7 +162,7 @@ function App() {
     <tr key={idx}>
       {Object.entries(row).map(([key, val], i) => {
 
-        // Case 1: 'Media Files' nested data with image info
+        // Case 1: Handle 'mediafiles' array
         if (key === 'mediafiles' && Array.isArray(val)) {
           return (
             <td key={i} className="border p-2">
@@ -170,9 +170,15 @@ function App() {
                 const path = `${media.folder_path}/${media.filename}`;
                 const imageUrl = getImageUrl(path);
                 return (
-                  <div key={j} className="mb-2">
+                  <div key={j} className="mb-4">
                     <img src={imageUrl} alt={media.media_name} width="150" />
-                    <p className="text-xs">{media.filename}</p>
+                    <p className="text-sm font-semibold mt-1">{media.media_name}</p>
+                    <p className="text-xs text-gray-600">Filename: {media.filename}</p>
+                    {media.analysis && (
+                      <p className="text-xs text-green-700">
+                        Veg Coverage: {media.analysis.veg_coverage_on_buildings}
+                      </p>
+                    )}
                   </div>
                 );
               })}
@@ -180,7 +186,7 @@ function App() {
           );
         }
 
-        // Case 2: Other nested objects (like Analysis)
+        // Case 2: Other nested objects
         if (typeof val === 'object' && val !== null) {
           return (
             <td key={i} className="border p-2">
@@ -189,7 +195,7 @@ function App() {
           );
         }
 
-        // Case 3: Simple values
+        // Case 3: Simple fields
         return (
           <td key={i} className="border p-2">{val}</td>
         );

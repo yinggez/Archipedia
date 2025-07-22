@@ -36,12 +36,13 @@ const QueryForm = ({ onSubmit }) => {
   const [media_columns, setMedia_columns] = useState({
     filename: false,
     folder_path: false,
+    media_name: false,
     //add more media columns
   })
 
   //These don't need to be changed at the moment
   const [analysis_columns, setAnalysis_columns] = useState({
-    
+    veg_coverage_on_buildings: false,
   })
 
   const handleProjectChange = (e) => {
@@ -231,7 +232,6 @@ const QueryForm = ({ onSubmit }) => {
         <label>
           <input
             type="checkbox"
-            
             checked={media_columns.folder_path}
             onChange={(e) => {
                 const checked = e.target.checked;
@@ -244,9 +244,38 @@ const QueryForm = ({ onSubmit }) => {
           />
           Show images
         </label>
-        {/*  TODO:  Add more check boxes with onChange={handleCheckboxChange} */}
         
-       
+        <label>
+          <input
+            type="checkbox"
+            name="media_name"
+            checked={media_columns.name}
+            onChange={handleCheckboxMedia}
+          />
+          Media Name
+        </label>
+        {/*  TODO:  Add more check boxes with onChange={handleCheckboxMedia} */}
+
+
+
+
+        <label>
+          <input
+            type="checkbox"
+            name="veg_coverage_on_buildings"
+            checked={analysis_columns.veg_coverage_on_buildings}
+            onChange={handleCheckboxAnalysis}
+          />
+          veg_coverage_on_buildings
+        </label>
+       {/*  TODO:  Add more check boxes with onChange={handleCheckboxAnalysis} */}
+
+
+
+
+
+
+
       </div>
 
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
