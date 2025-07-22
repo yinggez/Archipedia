@@ -1,13 +1,22 @@
 import { useState } from 'react'
 
 const QueryForm = ({ onSubmit }) => {
-  const [filters, setFilters] = useState({
+  const [project_filters, setProject_filters] = useState({
     continent: '',
     PR_year: '',
-    ownership_form: '',
-    media_source_type: '',
-    veg_coverage_on_buildings: ''
-    //add all other tags
+    ownership_form: ''
+    // TODO: add all other columns from project
+  })
+
+  //no need to change
+  const [media_filters, setMedia_filters] = useState({
+    source_type: '',
+  })
+
+  const [analysis_filters, setAnalysis_filters] = useState({
+    veg_coverage_on_buildings: '',
+    animals: '',
+    // TODO: add all other tags from analysis
   })
 
   const [columns, setColumns] = useState({
@@ -19,55 +28,170 @@ const QueryForm = ({ onSubmit }) => {
     city: false,
     state: false,
     country: false,
-    continet: false
-    //add more from the projects columns maybe keep a separate variable for columns of media files
+    continent: false
+    //add more from the projects columns
     
   })
 
-  const handleInputChange = (e) => {
-    setFilters({ ...filters, [e.target.name]: e.target.value })
-  }
+  const [media_columns, setMedia_columns] = useState({
+    filename: false,
+    folder_path: false,
+    //add more media columns
+  })
 
+  //These don't need to be changed at the moment
+  const [analysis_columns, setAnalysis_columns] = useState({
+    
+  })
+
+  const handleProjectChange = (e) => {
+    setProject_filters({ ...project_filters, [e.target.name]: e.target.value })
+  }
+  const handleMediaChange = (e) => {
+    setMedia_filters({ ...media_filters, [e.target.name]: e.target.value })
+  }
+  const handleAnalysisChange = (e) => {
+    setAnalysis_filters({ ...analysis_filters, [e.target.name]: e.target.value })
+  }
+  
   const handleCheckboxChange = (e) => {
     setColumns({ ...columns, [e.target.name]: e.target.checked })
+  }
+  const handleCheckboxMedia = (e) => {
+    setMedia_columns({ ...media_columns, [e.target.name]: e.target.checked })
+  }
+
+  const handleCheckboxAnalysis = (e) => {
+    setAnalysis_columns({ ...analysis_columns, [e.target.name]: e.target.checked })
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    onSubmit({ filters, columns })
+    onSubmit({ project_filters, media_filters, analysis_filters, columns, media_columns, analysis_columns })
   }
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      {/* Dropdown example */}
-      <select name="Continent" onChange={handleInputChange}>
-        <option value="">None</option>
-        <option value="Asia">Asia</option>
-        <option value="Europe">Europe</option>
-        <option value="Africa">Africa</option>
-        <option value="North America">North America</option>
-        <option value="South America">South America</option>
-        <option value="Europe">Australia</option>
-        <option value="Antarctica">Antarctica</option>
-      </select>
+      {/* Dropdown Continent */}
+      <label>
+        Continent:
+        <select name="continent" onChange={handleProjectChange}>
+            <option value="">All</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Africa">Africa</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+            <option value="Australia">Australia</option>
+            <option value="Antarctica">Antarctica</option>
+        </select>
+      </label>
+      {/* Ownership form */}
+      <label>
+        Ownership Type:
+        <select name="ownership_form" onChange={handleProjectChange}>
+            <option value="">All</option>
+            <option value="Private">Private</option>
+            <option value="Public">Public</option>
+            <option value="Public–Private Partnership">Public–Private Partnership</option>
+        </select>
+      </label>
 
-      <select name="Type of Ownership" onChange={handleInputChange}>
-        <option value="">None</option>
-        <option value="Private">Private</option>
-        <option value="Public">Public</option>
-        <option value="Public–Private Partnership">Public–Private Partnership</option>
-      </select>
-      {/* Add more dropdowns */}
+    {/*  TODO: Add the corresponding columns of the project table here in the same format as above, change the name, value and text 
+    with onChange={handleProjectChange}
+    
+    */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      {/* Visualizer form */}
+      <label>
+        Visualizer Type:
+        <select name="source_type" onChange={handleMediaChange}>
+            <option value="">All</option>
+            <option value="Design Firm / Architectural Firm Website">Design Firm / Architectural Firm Website</option>
+            <option value="Project Website">Project Website</option>
+            <option value="Architectural Media">Architectural Media</option>
+            <option value="Project Owner Website">Project Owner Website</option>
+            <option value="Visualization Firm Website">Visualization Firm Website</option>
+        </select>
+      </label>
+
+      {/* Tags */} 
+      <label>
+        Vegetation coverage on buildings:
+        <select name="veg_coverage_on_buildings" onChange={handleAnalysisChange}>
+            <option value="">/</option>
+            <option value="No">No</option>
+            <option value="Yes">Yes</option>
+        </select>
+      </label>
+      <label>
+        Animals:
+        <select name="animals" onChange={handleAnalysisChange}>
+            <option value="">/</option>
+            <option value="None">None</option>
+            <option value="Pets">Pets</option>
+            <option value="Birds">Birds</option>
+            <option value="Wildlife">Wildlife</option>
+            <option value="Mixture of Animals">Mixture of Animals</option>
+            <option value="Other">Other</option>
+        </select>
+      </label>
+
+      {/* TODO: Add the corresponding columns of the analysis table here in the same format as above, change the name, value and text 
+       with onChange={handleAnalysisChange}
+      
+      */}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       {/* Text input */}
-      <input
-        type="text"
-        name="name"
-        placeholder="Name of Project"
-        onChange={handleInputChange}
-        className="border p-2"
-      />
-      {/* Add more text input fields */}
+      <label>
+        Name of Project
+        <input
+            type="text"
+            name="name"
+            placeholder="Name of Project"
+            onChange={handleProjectChange}
+            className="border p-2"
+        />
+      </label>
+      {/*  TODO: Add more text input fields */}
 
       {/* Checkbox group */}
       <div className="grid grid-cols-2 gap-2">
@@ -90,26 +214,39 @@ const QueryForm = ({ onSubmit }) => {
           />
           Year of first Press Release
         </label>
-        {/* Change and Add more check boxes */}
-        <label>
-          <input
-            type="checkbox"
-            name="image_path"
-            checked={columns.image_path}
-            onChange={handleCheckboxChange}
-          />
-          Image Path
-        </label>
+        {/*  TODO:  Add more check boxes with onChange={handleCheckboxChange} */}
+
+
+
+
+
+
+
+
+
+
+
+
 
         <label>
           <input
             type="checkbox"
-            name="sentiment_score"
-            checked={columns.sentiment_score}
-            onChange={handleCheckboxChange}
+            
+            checked={media_columns.folder_path}
+            onChange={(e) => {
+                const checked = e.target.checked;
+                setMedia_columns((prev) => ({
+                  ...prev,
+                  filename: checked,
+                  folder_path: checked
+                }));
+              }}
           />
-          Sentiment Score
+          Show images
         </label>
+        {/*  TODO:  Add more check boxes with onChange={handleCheckboxChange} */}
+        
+       
       </div>
 
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
