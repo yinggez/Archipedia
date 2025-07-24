@@ -1,0 +1,60 @@
+form.query-form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1.5rem;
+    background-color: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-family: sans-serif;
+  }
+  
+  form.query-form label {
+    display: block;
+    margin-bottom: 1rem;
+    font-weight: 500;
+    color: #111827;
+  }
+  
+  form.query-form label input[type="text"],
+  form.query-form label select {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: white;
+  }
+  
+  form.query-form .checkbox-group {
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.75rem;
+  }
+  
+  form.query-form .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 400;
+    color: #374151;
+  }
+  
+  form.query-form button[type="submit"] {
+    margin-top: 1rem;
+    background-color: #3b82f6;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  form.query-form button[type="submit"]:hover {
+    background-color: #2563eb;
+  }
+  

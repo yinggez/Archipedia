@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './query.css'
 
 const QueryForm = ({ onSubmit }) => {
   const [project_filters, setProject_filters] = useState({
@@ -72,7 +73,7 @@ const QueryForm = ({ onSubmit }) => {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="query-form">
       {/* Dropdown Continent */}
       <label>
         Continent:
