@@ -82,7 +82,7 @@ function App() {
     <div className="p-4 max-w-4xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Project Query Interface</h1>
       <QueryForm onSubmit={handleQuery} />
-
+    <h2>Results</h2>
       {loading && <p>Loading...</p>}
 
       {!loading && results.length > 0 && (
