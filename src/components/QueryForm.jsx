@@ -27,7 +27,6 @@ const QueryForm = ({ onSubmit }) => {
     area_builtup: '',
     area_site: '',
     notes: ''
-    // num_images/texts/videos columns are named #images/texts/videos, the hashtag makes the line a comment
   })
 
   const [media_filters, setMedia_filters] = useState({
@@ -589,6 +588,7 @@ const QueryForm = ({ onSubmit }) => {
         <h2>Select Information for Query Result</h2>          
 
       {/* Checkbox group */}
+      {/* Project Table */}
       <div className="grid grid-cols-2 gap-2">
         <label>
           <input
@@ -609,11 +609,238 @@ const QueryForm = ({ onSubmit }) => {
           />
           Year of first Press Release
         </label>
-        {/*  TODO:  Add more check boxes with onChange={handleCheckboxChange} */}
 
+        <label>
+          <input
+            type="checkbox"
+            name="project_id"
+            checked={columns.project_id}
+            onChange={handleCheckboxChange}
+          />
+          Project ID
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="city"
+            checked={columns.city}
+            onChange={handleCheckboxChange}
+          />
+          City
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="country"
+            checked={columns.country}
+            onChange={handleCheckboxChange}
+          />
+          Country
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="continent"
+            checked={columns.continent}
+            onChange={handleCheckboxChange}
+          />
+          Continent
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="ownership"
+            checked={columns.ownership}
+            onChange={handleCheckboxChange}
+          />
+          Ownership of Project
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="project_type"
+            checked={columns.project_type}
+            onChange={handleCheckboxChange}
+          />
+          Project Type
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="status"
+            checked={columns.status}
+            onChange={handleCheckboxChange}
+          />
+          Project Status
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="PR_year"
+            checked={columns.PR_year}
+            onChange={handleCheckboxChange}
+          />
+          Year of first Press Release
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="budget"
+            checked={columns.budget}
+            onChange={handleCheckboxChange}
+          />
+          Project Budget
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="keywords"
+            checked={columns.keywords}
+            onChange={handleCheckboxChange}
+          />
+          Keywords used to Identify the Project
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="link_primary"
+            checked={columns.link_primary}
+            onChange={handleCheckboxChange}
+          />
+          Primary Project Link
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="link_secondary"
+            checked={columns.link_secondary}
+            onChange={handleCheckboxChange}
+          />
+          Secondary Project Link
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="link_origin"
+            checked={columns.link_origin}
+            onChange={handleCheckboxChange}
+          />
+          Nexis Uni Link
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="num_images"
+            checked={columns.num_images}
+            onChange={handleCheckboxChange}
+          />
+          Number of Images
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="num_texts"
+            checked={columns.num_texts}
+            onChange={handleCheckboxChange}
+          />
+          Number of Texts
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="num_videos"
+            checked={columns.num_videos}
+            onChange={handleCheckboxChange}
+          />
+          Number of Videos
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="firm"
+            checked={columns.firm}
+            onChange={handleCheckboxChange}
+          />
+          Project Firm
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="state"
+            checked={columns.state}
+            onChange={handleCheckboxChange}
+          />
+          Project States (as of Summer 25 IDP)
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="visualizer"
+            checked={columns.visualizer}
+            onChange={handleCheckboxChange}
+          />
+          Project Visualizer
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="ownership_form"
+            checked={columns.ownership_form}
+            onChange={handleCheckboxChange}
+          />
+          Ownership Form
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="area_builtup"
+            checked={columns.area_builtup}
+            onChange={handleCheckboxChange}
+          />
+          Builtup Area Size
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="area_site"
+            checked={columns.area_site}
+            onChange={handleCheckboxChange}
+          />
+          Site Area Size
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="notes"
+            checked={columns.notes}
+            onChange={handleCheckboxChange}
+          />
+          Notes
+        </label>
+
+        {/* Media Table */}
         <label>
           <input
             type="checkbox"
@@ -634,16 +861,93 @@ const QueryForm = ({ onSubmit }) => {
           <input
             type="checkbox"
             name="media_name"
+            checked={media_columns.media_name}
+            onChange={handleCheckboxMedia}
+          />
+          Media Name
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="project_id"
+            checked={media_columns.project_id}
+            onChange={handleCheckboxMedia}
+          />
+          Project ID
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="filename"
+            checked={media_columns.filename}
+            onChange={handleCheckboxMedia}
+          />
+          Media Name
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="folder_path"
+            checked={media_columns.folder_path}
+            onChange={handleCheckboxMedia}
+          />
+          Folder of Media
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="media_name"
             checked={media_columns.name}
             onChange={handleCheckboxMedia}
           />
           Media Name
         </label>
-        {/*  TODO:  Add more check boxes with onChange={handleCheckboxMedia} */}
 
+        <label>
+          <input
+            type="checkbox"
+            name="type"
+            checked={media_columns.type}
+            onChange={handleCheckboxMedia}
+          />
+          Media Type
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="source_type"
+            checked={media_columns.source_type}
+            onChange={handleCheckboxMedia}
+          />
+          Media Source Type
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="source_link"
+            checked={media_columns.source_link}
+            onChange={handleCheckboxMedia}
+          />
+          Media Source Link
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="notes_on_sourcetype"
+            checked={media_columns.notes_on_sourcetype}
+            onChange={handleCheckboxMedia}
+          />
+          Notes on Media Source Type
+        </label>
+
+        {/* Analysis Table */}
         <label>
           <input
             type="checkbox"
@@ -651,16 +955,138 @@ const QueryForm = ({ onSubmit }) => {
             checked={analysis_columns.veg_coverage_on_buildings}
             onChange={handleCheckboxAnalysis}
           />
-          veg_coverage_on_buildings
+          Vegetation Coverage on Buildings
         </label>
-       {/*  TODO:  Add more check boxes with onChange={handleCheckboxAnalysis} */}
 
+        <label>
+          <input
+            type="checkbox"
+            name="document_name"
+            checked={analysis_columns.document_name}
+            onChange={handleCheckboxAnalysis}
+          />
+          Document Name
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="type_of_visualization"
+            checked={analysis_columns.type_of_visualization}
+            onChange={handleCheckboxAnalysis}
+          />
+          Visualization Type
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="color_hues"
+            checked={analysis_columns.color_hues}
+            onChange={handleCheckboxAnalysis}
+          />
+          Color Hues
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="method_of_visualization"
+            checked={analysis_columns.method_of_visualization}
+            onChange={handleCheckboxAnalysis}
+          />
+          Visualization Method
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="human_presence"
+            checked={analysis_columns.human_presence}
+            onChange={handleCheckboxAnalysis}
+          />
+          Human Presence
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="seasonal_context"
+            checked={analysis_columns.seasonal_context}
+            onChange={handleCheckboxAnalysis}
+          />
+          Seasonal Context
+        </label>
 
+        <label>
+          <input
+            type="checkbox"
+            name="time_of_day"
+            checked={analysis_columns.time_of_day}
+            onChange={handleCheckboxAnalysis}
+          />
+          Time of Day
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="weather"
+            checked={analysis_columns.weather}
+            onChange={handleCheckboxAnalysis}
+          />
+          Weather
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="mood"
+            checked={analysis_columns.mood}
+            onChange={handleCheckboxAnalysis}
+          />
+          Mood
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="water"
+            checked={analysis_columns.water}
+            onChange={handleCheckboxAnalysis}
+          />
+          Water
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="veg_coverage_in_img"
+            checked={analysis_columns.veg_coverage_in_img}
+            onChange={handleCheckboxAnalysis}
+          />
+          Vegetation Coverage in Image
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="animals"
+            checked={analysis_columns.animals}
+            onChange={handleCheckboxAnalysis}
+          />
+          Animals
+        </label>
+
+        <label>
+          <input
+            type="checkbox"
+            name="super_interesting"
+            checked={analysis_columns.super_interesting}
+            onChange={handleCheckboxAnalysis}
+          />
+          Super Interesting
+        </label>
       </div>
 
       <button type="submit" className="bg-blue-500 text-white p-2 rounded">
