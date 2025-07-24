@@ -63,7 +63,7 @@ const QueryForm = ({ onSubmit }) => {
     PR_year: false,
     ownership_form: false,
     project_id: false,
-    name: false,
+    name: true,
     city: false,
     country: false,
     ownership: false,
@@ -144,7 +144,9 @@ const QueryForm = ({ onSubmit }) => {
 
   return (
     <form onSubmit={handleSubmit} className="query-form">
+        <h2>Filter for Project Information </h2>
       {/* Dropdown Continent */}
+
       <label>
         Continent:
         <select name="continent" onChange={handleProjectChange}>
@@ -168,6 +170,21 @@ const QueryForm = ({ onSubmit }) => {
             <option value="Public–Private Partnership">Public–Private Partnership</option>
         </select>
       </label>
+
+    {/* Text input */}
+        <label>
+                Name of Project
+                <input
+                    type="text"
+                    name="name"
+                    placeholder="Name of Project"
+                    onChange={handleProjectChange}
+                    className="border p-2"
+                />
+      </label>
+      {/*  TODO: Add more text input fields */}
+
+
       {/* Project ID */}
       <label>
         Project ID:
@@ -380,28 +397,8 @@ const QueryForm = ({ onSubmit }) => {
     
     */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
       {/* Visualizer form */}
+      <h2>Filter for Image Information </h2>
       <label>
         Visualizer Type:
         <select name="source_type" onChange={handleMediaChange}>
@@ -413,8 +410,41 @@ const QueryForm = ({ onSubmit }) => {
             <option value="Visualization Firm Website">Visualization Firm Website</option>
         </select>
       </label>
-
+<h2>Filter for Tags/Codes for Images</h2>
       {/* Tags */} 
+      <label>
+                    Human Presence:
+                    <select name="human_presence" onChange={handleAnalysisChange}>
+                        <option value="">/</option>
+                        <option value="No">No</option>
+                        <option value="Highly active (sport, cycling, yoga)">Highly active (sport, cycling, yoga)</option>
+                        <option value="Passive (sitting, resting, observing)">Passive (sitting, resting, observing)</option>
+                        <option value="Walking / commuting">Walking / commuting</option>
+                        <option value="Group gathering">Group gathering</option>
+                        <option value="Domestic (cooking, cleaning, childcare)">Domestic (cooking, cleaning, childcare)</option>
+                        <option value="Business/formal (office, conference)">Business/formal (office, conference)</option>
+                        <option value="Mixed activities">Mixed activities</option>
+                        <option value="Blurred/silhouetted people">Blurred/silhouetted people</option>
+                        <option value="Stylized avatars">Stylized avatars</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </label>
+                    <label>
+                    Method / Style of Visualization:
+                    <select name="method_of_visualization" onChange={handleAnalysisChange}>
+                        <option value="">/</option>
+                        <option value="Photorealistic rendering">Photorealistic rendering</option>
+                        <option value="Watercolor / hand-drawn style">Watercolor / hand-drawn style</option>
+                        <option value="Line drawing / sketch">Line drawing / sketch</option>
+                        <option value="Collage / mixed media">Collage / mixed media</option>
+                        <option value="Diagrammatic">Diagrammatic</option>
+                        <option value="Stylized 3D (non-realistic textures)">Stylized 3D (non-realistic textures)</option>
+                        <option value="AR/VR interactive">AR/VR interactive</option>
+                        <option value="AI-assisted generation (e.g., Midjourney style)">AI-assisted generation (e.g., Midjourney style)</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </label>
+
       <label>
         Vegetation coverage on buildings:
         <select name="veg_coverage_on_buildings" onChange={handleAnalysisChange}>
@@ -436,40 +466,127 @@ const QueryForm = ({ onSubmit }) => {
         </select>
       </label>
 
-      {/* TODO: Add the corresponding columns of the analysis table here in the same format as above, change the name, value and text 
-       with onChange={handleAnalysisChange}
-      
-      */}
+        <label>
+        Water:
+        <select name="water" onChange={handleAnalysisChange}>
+            <option value="">/</option>
+            <option value="River">river</option>
+            <option value="Pond">pond</option>
+            <option value="Fountain">fountain</option>
+            <option value="Sea">sea</option>
+            <option value="None">None</option>
+            <option value="Other">Other</option>
+        </select>
+        </label>
 
+        <label>
+            Weather:
+            <select name="weather" onChange={handleAnalysisChange}>
+                <option value="">/</option>
+                <option value="Sunny">Sunny</option>
+                <option value="Cloudy">Cloudy</option>
+                <option value="Rainy">Rainy</option>
+                <option value="Snowy">Snowy</option>
+                <option value="Foggy">Foggy</option>
+                <option value="Other">Other</option>
+            </select>
+            </label>
 
+            <label>
+            Seasonal Context:
+            <select name="seasonal_context" onChange={handleAnalysisChange}>
+                <option value="">/</option>
+                <option value="Autumn Leaves">Autumn Leaves</option>
+                <option value="Snow">Snow</option>
+                <option value="Spring Bloom">Spring Bloom</option>
+                <option value="Other">Other</option>
+            </select>
+            </label>
 
+            <label>
+            Time of Day / Lighting:
+            <select name="time_of_day" onChange={handleAnalysisChange}>
+                <option value="">/</option>
+                <option value="Morning / Sunrise">Morning / sunrise</option>
+                <option value="Midday">Midday</option>
+                <option value="Golden hour / dusk / sunset">Golden hour / dusk / sunset</option>
+                <option value="Night / Artificial Light">Night / artificial light</option>
+                <option value="Other">Other</option>
+            </select>
+            </label>
 
+            <label>
+                Vegetation coverage in the image:
+                <select name="veg_coverage_in_img" onChange={handleAnalysisChange}>
+                    <option value="">/</option>
+                    <option value=">50%">Over50%</option>
+                    <option value="Minimal">Minimal</option>
+                    <option value="None">None</option>
+                </select>
+                </label>
 
+                <label>
+                Super Interesting:
+                <select name="super_interesting" onChange={handleAnalysisChange}>
+                    <option value="">/</option>
+                    <option value="Yes">Yes</option>
+                    <option value="No">No</option>
+                </select>
+                </label>
+                
+                <label>
+                    Mood / Atmosphere:
+                    <select name="mood" onChange={handleAnalysisChange}>
+                        <option value="">/</option>
+                        <option value="Calm / serene">Calm / serene</option>
+                        <option value="Energetic / busy">Energetic / busy</option>
+                        <option value="Mysterious / contemplative">Mysterious / contemplative</option>
+                        <option value="Minimalist / clean">Minimalist / clean</option>
+                        <option value="Cozy / domestic">Cozy / domestic</option>
+                        <option value="Futuristic">Futuristic</option>
+                        <option value="Nostalgic">Nostalgic</option>
+                        <option value="Industrial / raw">Industrial / raw</option>
+                        <option value="Naturalistic">Naturalistic</option>
+                        <option value="Playful / colorful">Playful / colorful</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </label>
 
+                    <label>
+                    Type / Content of Visualization:
+                    <select name="type_of_visualization" onChange={handleAnalysisChange}>
+                        <option value="">/</option>
+                        <option value="Bird’s eye view (axonometric / aerial)">Bird’s eye view (axonometric / aerial)</option>
+                        <option value="Plan (2D, site, floor)">Plan (2D, site, floor)</option>
+                        <option value="Section (longitudinal, cross)">Section (longitudinal, cross)</option>
+                        <option value="Elevation">Elevation</option>
+                        <option value="Perspective view (eye level)">Perspective view (eye level)</option>
+                        <option value="Animation / walk-through">Animation / walk-through</option>
+                        <option value="Diagrammatic (schematic overlays)">Diagrammatic (schematic overlays)</option>
+                        <option value="Axonometric view / Image of a model">Axonometric view / Image of a model</option>
+                        <option value="Data visualization (charts, graphs)">Data visualization (charts, graphs)</option>
+                        <option value="Interior">Interior</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </label>
 
-
-
-
-
-
-
-
-
-
-
-
-      {/* Text input */}
-      <label>
-        Name of Project
-        <input
-            type="text"
-            name="name"
-            placeholder="Name of Project"
-            onChange={handleProjectChange}
-            className="border p-2"
-        />
-      </label>
-      {/*  TODO: Add more text input fields */}
+                    <label>
+                    Color Hues / Palette:
+                    <select name="color_hues" onChange={handleAnalysisChange}>
+                        <option value="">/</option>
+                        <option value="Warm tones (red, orange, yellow)">Warm tones (red, orange, yellow)</option>
+                        <option value="Cool tones (blue, green, violet)">Cool tones (blue, green, violet)</option>
+                        <option value="Monochrome / grayscale">Monochrome / grayscale</option>
+                        <option value="Pastel">Pastel</option>
+                        <option value="Earth tones">Earth tones</option>
+                        <option value="High contrast (black & white with accent)">High contrast (black & white with accent)</option>
+                        <option value="Corporate/brand-specific palettes">Corporate/brand-specific palettes</option>
+                        <option value="Desaturated/minimal">Desaturated/minimal</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    </label>
+                    
+        <h2>Select Information for Query Result</h2>          
 
       {/* Checkbox group */}
       <div className="grid grid-cols-2 gap-2">
@@ -493,15 +610,6 @@ const QueryForm = ({ onSubmit }) => {
           Year of first Press Release
         </label>
         {/*  TODO:  Add more check boxes with onChange={handleCheckboxChange} */}
-
-
-
-
-
-
-
-
-
 
 
 
