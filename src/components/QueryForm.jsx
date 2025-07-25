@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import './query.css'
+import tags from './tags.json';
 
 const QueryForm = ({ onSubmit }) => {
   const [project_filters, setProject_filters] = useState({
@@ -122,7 +123,25 @@ const QueryForm = ({ onSubmit }) => {
     setMedia_filters({ ...media_filters, [e.target.name]: e.target.value })
   }
   const handleAnalysisChange = (e) => {
-    setAnalysis_filters({ ...analysis_filters, [e.target.name]: e.target.value })
+    const { name, value } = e.target;
+
+  if (name === "human_presence" && value === "All") {
+    const allOptions = tags["human_presence"];
+    const filteredOptions = allOptions.filter(
+      opt => opt !== "All" && opt !== "No" && opt !== "/"
+    );
+
+    setAnalysis_filters({
+        ...analysis_filters,
+        [name]: filteredOptions 
+      });
+  } else {
+    setAnalysis_filters({
+        ...analysis_filters,
+        [name]: value
+      });
+  }
+    
   }
   
   const handleCheckboxChange = (e) => {
@@ -397,9 +416,9 @@ const QueryForm = ({ onSubmit }) => {
     */}
 
       {/* Visualizer form */}
-      <h2>Filter for Image Information </h2>
+      <h2>Filter for Media Information </h2>
       <label>
-        Visualizer Type:
+        Source of Images:
         <select name="source_type" onChange={handleMediaChange}>
             <option value="">All</option>
             <option value="Design Firm / Architectural Firm Website">Design Firm / Architectural Firm Website</option>
@@ -410,186 +429,42 @@ const QueryForm = ({ onSubmit }) => {
         </select>
       </label>
 <h2>Filter for Tags/Codes for Images</h2>
-      {/* Tags */} 
-      <label>
-                    Human Presence:
-                    <select name="human_presence" onChange={handleAnalysisChange}>
-                        <option value="">/</option>
-                        <option value="No">No</option>
-                        <option value="Highly active (sport, cycling, yoga)">Highly active (sport, cycling, yoga)</option>
-                        <option value="Passive (sitting, resting, observing)">Passive (sitting, resting, observing)</option>
-                        <option value="Walking / commuting">Walking / commuting</option>
-                        <option value="Group gathering">Group gathering</option>
-                        <option value="Domestic (cooking, cleaning, childcare)">Domestic (cooking, cleaning, childcare)</option>
-                        <option value="Business/formal (office, conference)">Business/formal (office, conference)</option>
-                        <option value="Mixed activities">Mixed activities</option>
-                        <option value="Blurred/silhouetted people">Blurred/silhouetted people</option>
-                        <option value="Stylized avatars">Stylized avatars</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    </label>
-                    <label>
-                    Method / Style of Visualization:
-                    <select name="method_of_visualization" onChange={handleAnalysisChange}>
-                        <option value="">/</option>
-                        <option value="Photorealistic rendering">Photorealistic rendering</option>
-                        <option value="Watercolor / hand-drawn style">Watercolor / hand-drawn style</option>
-                        <option value="Line drawing / sketch">Line drawing / sketch</option>
-                        <option value="Collage / mixed media">Collage / mixed media</option>
-                        <option value="Diagrammatic">Diagrammatic</option>
-                        <option value="Stylized 3D (non-realistic textures)">Stylized 3D (non-realistic textures)</option>
-                        <option value="AR/VR interactive">AR/VR interactive</option>
-                        <option value="AI-assisted generation (e.g., Midjourney style)">AI-assisted generation (e.g., Midjourney style)</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    </label>
-
-      <label>
-        Vegetation coverage on buildings:
-        <select name="veg_coverage_on_buildings" onChange={handleAnalysisChange}>
+    {/* Tags */} 
+      
+    {Object.entries(tags).map(([fieldName, options]) => (
+        <label key={fieldName}>
+            {fieldName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}:
+            <select name={fieldName} onChange={handleAnalysisChange}>
             <option value="">/</option>
-            <option value="No">No</option>
-            <option value="Yes">Yes</option>
-        </select>
-      </label>
-      <label>
-        Animals:
-        <select name="animals" onChange={handleAnalysisChange}>
-            <option value="">/</option>
-            <option value="None">None</option>
-            <option value="Pets">Pets</option>
-            <option value="Birds">Birds</option>
-            <option value="Wildlife">Wildlife</option>
-            <option value="Mixture of Animals">Mixture of Animals</option>
-            <option value="Other">Other</option>
-        </select>
-      </label>
-
-        <label>
-        Water:
-        <select name="water" onChange={handleAnalysisChange}>
-            <option value="">/</option>
-            <option value="River">river</option>
-            <option value="Pond">pond</option>
-            <option value="Fountain">fountain</option>
-            <option value="Sea">sea</option>
-            <option value="None">None</option>
-            <option value="Other">Other</option>
-        </select>
+            {options.map((opt, i) => (
+                <option key={i} value={opt}>{opt}</option>
+            ))}
+            </select>
         </label>
+        ))}
 
-        <label>
-            Weather:
-            <select name="weather" onChange={handleAnalysisChange}>
-                <option value="">/</option>
-                <option value="Sunny">Sunny</option>
-                <option value="Cloudy">Cloudy</option>
-                <option value="Rainy">Rainy</option>
-                <option value="Snowy">Snowy</option>
-                <option value="Foggy">Foggy</option>
-                <option value="Other">Other</option>
-            </select>
-            </label>
-
-            <label>
-            Seasonal Context:
-            <select name="seasonal_context" onChange={handleAnalysisChange}>
-                <option value="">/</option>
-                <option value="Autumn Leaves">Autumn Leaves</option>
-                <option value="Snow">Snow</option>
-                <option value="Spring Bloom">Spring Bloom</option>
-                <option value="Other">Other</option>
-            </select>
-            </label>
-
-            <label>
-            Time of Day / Lighting:
-            <select name="time_of_day" onChange={handleAnalysisChange}>
-                <option value="">/</option>
-                <option value="Morning / Sunrise">Morning / sunrise</option>
-                <option value="Midday">Midday</option>
-                <option value="Golden hour / dusk / sunset">Golden hour / dusk / sunset</option>
-                <option value="Night / Artificial Light">Night / artificial light</option>
-                <option value="Other">Other</option>
-            </select>
-            </label>
-
-            <label>
-                Vegetation coverage in the image:
-                <select name="veg_coverage_in_img" onChange={handleAnalysisChange}>
-                    <option value="">/</option>
-                    <option value=">50%">Over50%</option>
-                    <option value="Minimal">Minimal</option>
-                    <option value="None">None</option>
-                </select>
-                </label>
-
-                <label>
-                Super Interesting:
-                <select name="super_interesting" onChange={handleAnalysisChange}>
-                    <option value="">/</option>
-                    <option value="Yes">Yes</option>
-                    <option value="No">No</option>
-                </select>
-                </label>
-                
-                <label>
-                    Mood / Atmosphere:
-                    <select name="mood" onChange={handleAnalysisChange}>
-                        <option value="">/</option>
-                        <option value="Calm / serene">Calm / serene</option>
-                        <option value="Energetic / busy">Energetic / busy</option>
-                        <option value="Mysterious / contemplative">Mysterious / contemplative</option>
-                        <option value="Minimalist / clean">Minimalist / clean</option>
-                        <option value="Cozy / domestic">Cozy / domestic</option>
-                        <option value="Futuristic">Futuristic</option>
-                        <option value="Nostalgic">Nostalgic</option>
-                        <option value="Industrial / raw">Industrial / raw</option>
-                        <option value="Naturalistic">Naturalistic</option>
-                        <option value="Playful / colorful">Playful / colorful</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    </label>
-
-                    <label>
-                    Type / Content of Visualization:
-                    <select name="type_of_visualization" onChange={handleAnalysisChange}>
-                        <option value="">/</option>
-                        <option value="Bird’s eye view (axonometric / aerial)">Bird’s eye view (axonometric / aerial)</option>
-                        <option value="Plan (2D, site, floor)">Plan (2D, site, floor)</option>
-                        <option value="Section (longitudinal, cross)">Section (longitudinal, cross)</option>
-                        <option value="Elevation">Elevation</option>
-                        <option value="Perspective view (eye level)">Perspective view (eye level)</option>
-                        <option value="Animation / walk-through">Animation / walk-through</option>
-                        <option value="Diagrammatic (schematic overlays)">Diagrammatic (schematic overlays)</option>
-                        <option value="Axonometric view / Image of a model">Axonometric view / Image of a model</option>
-                        <option value="Data visualization (charts, graphs)">Data visualization (charts, graphs)</option>
-                        <option value="Interior">Interior</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    </label>
-
-                    <label>
-                    Color Hues / Palette:
-                    <select name="color_hues" onChange={handleAnalysisChange}>
-                        <option value="">/</option>
-                        <option value="Warm tones (red, orange, yellow)">Warm tones (red, orange, yellow)</option>
-                        <option value="Cool tones (blue, green, violet)">Cool tones (blue, green, violet)</option>
-                        <option value="Monochrome / grayscale">Monochrome / grayscale</option>
-                        <option value="Pastel">Pastel</option>
-                        <option value="Earth tones">Earth tones</option>
-                        <option value="High contrast (black & white with accent)">High contrast (black & white with accent)</option>
-                        <option value="Corporate/brand-specific palettes">Corporate/brand-specific palettes</option>
-                        <option value="Desaturated/minimal">Desaturated/minimal</option>
-                        <option value="Other">Other</option>
-                    </select>
-                    </label>
-                    
         <h2>Select Information for Query Result</h2>          
 
       {/* Checkbox group */}
+      <label>
+          <input
+            type="checkbox"
+            checked={media_columns.folder_path}
+            onChange={(e) => {
+                const checked = e.target.checked;
+                setMedia_columns((prev) => ({
+                  ...prev,
+                  filename: checked,
+                  folder_path: checked
+                }));
+              }}
+          />
+          Show images
+        </label>
       {/* Project Table */}
+      
       <div className="grid grid-cols-2 gap-2">
+      <h3>Project Info</h3>
         <label>
           <input
             type="checkbox"
@@ -841,41 +716,7 @@ const QueryForm = ({ onSubmit }) => {
         </label>
 
         {/* Media Table */}
-        <label>
-          <input
-            type="checkbox"
-            checked={media_columns.folder_path}
-            onChange={(e) => {
-                const checked = e.target.checked;
-                setMedia_columns((prev) => ({
-                  ...prev,
-                  filename: checked,
-                  folder_path: checked
-                }));
-              }}
-          />
-          Show images
-        </label>
-        
-        <label>
-          <input
-            type="checkbox"
-            name="media_name"
-            checked={media_columns.media_name}
-            onChange={handleCheckboxMedia}
-          />
-          Media Name
-        </label>
-
-        <label>
-          <input
-            type="checkbox"
-            name="project_id"
-            checked={media_columns.project_id}
-            onChange={handleCheckboxMedia}
-          />
-          Project ID
-        </label>
+        <h3>Media Info</h3>
 
         <label>
           <input
@@ -897,15 +738,6 @@ const QueryForm = ({ onSubmit }) => {
           Folder of Media
         </label>
 
-        <label>
-          <input
-            type="checkbox"
-            name="media_name"
-            checked={media_columns.name}
-            onChange={handleCheckboxMedia}
-          />
-          Media Name
-        </label>
 
         <label>
           <input
@@ -948,6 +780,7 @@ const QueryForm = ({ onSubmit }) => {
         </label>
 
         {/* Analysis Table */}
+        <h3>Analysis Info</h3>
         <label>
           <input
             type="checkbox"

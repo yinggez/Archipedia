@@ -57,9 +57,14 @@ function App() {
         }
         if (filterAnalysis) {
           Object.entries(analysis_filters).forEach(([key, value]) => {
-            if (value) query = query.eq(`mediafiles.analysis.${key}`, value)
-            console.log(query);
-          })
+            if (Array.isArray(value) && value.length > 0) {
+              // Apply OR logic for multiple values
+              query = query.in(`mediafiles.analysis.${key}`, value);
+            } else if (value) {
+              // Regular single filter
+              query = query.eq(`mediafiles.analysis.${key}`, value);
+            }
+          });
         }
     
         const { data, error } = await query;
@@ -108,14 +113,18 @@ function App() {
                 const imageUrl = getImageUrl(path);
                 return (
                   <div key={j} className="mb-4">
-                    <img src={imageUrl} alt={media.media_name} width="150" />
+                    <a href={imageUrl} target='_blank' rel="noopener noreferrer"><img src={imageUrl} alt={media.media_name} width="150" /></a>
                     <p className="text-sm font-semibold mt-1">{media.media_name}</p>
                     <p className="text-xs text-gray-600">Filename: {media.filename}</p>
-                    {media.analysis && (
-                      <p className="text-xs text-green-700">
-                        Veg Coverage: {media.analysis.veg_coverage_on_buildings}
-                      </p>
-                    )}
+                    {media.analysis && typeof media.analysis === 'object' && (
+              <div className="mt-1 text-xs text-green-700">
+                {Object.entries(media.analysis).map(([k, v], idx) => (
+                  <p key={idx}>
+                    {k.replace(/_/g, ' ')}: {v}
+                  </p>
+                ))}
+              </div>
+            )}
                   </div>
                 );
               })}

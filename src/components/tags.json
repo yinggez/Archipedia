@@ -1,0 +1,115 @@
+{
+    "type_of_visualization": [
+      "Bird’s eye view (axonometric / aerial)",
+      "Plan (2D, site, floor)",
+      "Section (longitudinal, cross)",
+      "Elevation",
+      "Perspective view (eye level)",
+      "Animation / walk-through",
+      "Diagrammatic (schematic overlays)",
+      "Axonometric view / Image of a model",
+      "Data visualization (charts, graphs)",
+      "Interior",
+      "Other"
+    ],
+    "color_hues": [
+      "Warm tones (red, orange, yellow)",
+      "Cool tones (blue, green, violet)",
+      "Monochrome / grayscale",
+      "Pastel",
+      "Earth tones",
+      "High contrast (black & white with accent)",
+      "Corporate/brand-specific palettes",
+      "Desaturated/minimal",
+      "Other"
+    ],
+    "method_of_visualization": [
+      "Photorealistic rendering",
+      "Watercolor / hand-drawn style",
+      "Line drawing / sketch",
+      "Collage / mixed media",
+      "Diagrammatic",
+      "Stylized 3D (non-realistic textures)",
+      "AR/VR interactive",
+      "AI-assisted generation (e.g., Midjourney style)",
+      "Other"
+    ],
+    "human_presence": [
+      "Yes",
+      "No",
+      "Highly active (sport, cycling, yoga)",
+      "Passive (sitting, resting, observing)",
+      "Walking / commuting",
+      "Group gathering",
+      "Domestic (cooking, cleaning, childcare)",
+      "Business/formal (office, conference)",
+      "Mixed activities",
+      "Blurred/silhouetted people",
+      "Stylized avatars",
+      "Other"
+    ],
+    "veg_coverage_in_img": [
+      ">50%",
+      "Minimal",
+      "None"
+    ],
+    "water": [
+      "River",
+      "Pond",
+      "Fountain",
+      "Sea",
+      "None",
+      "Other"
+    ],
+    "animals": [
+      "Birds",
+      "Pets",
+      "Wildlife",
+      "Mixture of animals",
+      "Other",
+      "None"
+    ],
+    "weather": [
+      "Sunny",
+      "Cloudy",
+      "Rainy",
+      "Snowy",
+      "Foggy",
+      "Other"
+    ],
+    "seasonal_context": [
+      "Autumn Leaves",
+      "Snow",
+      "Spring Bloom",
+      "Other"
+    ],
+    "veg_coverage_on_buildings": [
+      "Yes",
+      "No"
+    ],
+    "time_of_day": [
+      "Morning / Sunrise",
+      "Midday",
+      "Golden hour / dusk / sunset",
+      "Night / Artificial Light",
+      "Other"
+    ],
+    "mood": [
+      "Calm / serene",
+      "Energetic / busy",
+      "Mysterious / contemplative",
+      "Minimalist / clean",
+      "Cozy / domestic",
+      "Futuristic",
+      "Nostalgic",
+      "Industrial / raw",
+      "Naturalistic",
+      "Playful / colorful",
+      "Other"
+    ],
+    "super_interesting": [
+      "Yes",
+      "No"
+    ]
+  }
+  
