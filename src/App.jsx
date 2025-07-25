@@ -23,7 +23,7 @@ function App() {
       const joinAnalysis = Object.values(analysis_columns).some(val => val !== false);
       const filterMedia = Object.values(media_filters).some(val => val !== '');
       const filterAnalysis = Object.values(analysis_filters).some(val => val !== '');
-      console.log(media_filters);
+      console.log(analysis_filters);
       const selectedProjectCols = Object.entries(columns)
       .filter(([_, isChecked]) => isChecked)
       .map(([col]) => col);
@@ -84,78 +84,79 @@ function App() {
   }
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Project Query Interface</h1>
+    <div className="app-container">
+      
+      <h1 className="text-2xl font-bold mb-4">ArchPedia</h1>
       <QueryForm onSubmit={handleQuery} />
-    <h2>Results</h2>
-      {loading && <p>Loading...</p>}
+      <h2>Results</h2>
+        {loading && <p>Loading...</p>}
 
-      {!loading && results.length > 0 && (
-        <table className="table-auto border-collapse border mt-6 w-full">
-          <thead>
-            <tr>
-              {Object.keys(results[0]).map((key) => (
-                <th key={key} className="border p-2 bg-gray-100">{key}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-  {results.map((row, idx) => (
-    <tr key={idx}>
-      {Object.entries(row).map(([key, val], i) => {
-
-        // Case 1: Handle 'mediafiles' array
-        if (key === 'mediafiles' && Array.isArray(val)) {
-          return (
-            <td key={i} className="border p-2">
-              {val.map((media, j) => {
-                const path = `${media.folder_path}/${media.filename}`;
-                const imageUrl = getImageUrl(path);
-                return (
-                  <div key={j} className="mb-4">
-                    <a href={imageUrl} target='_blank' rel="noopener noreferrer"><img src={imageUrl} alt={media.media_name} width="150" /></a>
-                    <p className="text-sm font-semibold mt-1">{media.media_name}</p>
-                    <p className="text-xs text-gray-600">Filename: {media.filename}</p>
-                    {media.analysis && typeof media.analysis === 'object' && (
-              <div className="mt-1 text-xs text-green-700">
-                {Object.entries(media.analysis).map(([k, v], idx) => (
-                  <p key={idx}>
-                    {k.replace(/_/g, ' ')}: {v}
-                  </p>
+        {!loading && results.length > 0 && (
+          <table className="table-auto border-collapse border mt-6 w-full">
+            <thead>
+              <tr>
+                {Object.keys(results[0]).map((key) => (
+                  <th key={key} className="border p-2 bg-gray-100">{key}</th>
                 ))}
-              </div>
-            )}
-                  </div>
-                );
-              })}
-            </td>
-          );
-        }
+              </tr>
+            </thead>
+            <tbody>
+              {results.map((row, idx) => (
+                <tr key={idx}>
+                  {Object.entries(row).map(([key, val], i) => {
 
-        // Case 2: Other nested objects
-        if (typeof val === 'object' && val !== null) {
-          return (
-            <td key={i} className="border p-2">
-              <pre className="whitespace-pre-wrap text-xs">{JSON.stringify(val, null, 2)}</pre>
-            </td>
-          );
-        }
+                    // Case 1: Handle 'mediafiles' array
+                    if (key === 'mediafiles' && Array.isArray(val)) {
+                      return (
+                        <td key={i} className="border p-2">
+                          {val.map((media, j) => {
+                            const path = `${media.folder_path}/${media.filename}`;
+                            const imageUrl = getImageUrl(path);
+                            return (
+                              <div key={j} className="mb-4">
+                                <a href={imageUrl} target='_blank' rel="noopener noreferrer"><img src={imageUrl} alt={media.media_name} width="150" /></a>
+                                <p className="text-sm font-semibold mt-1">{media.media_name}</p>
+                                <p className="text-xs text-gray-600">Filename: {media.filename}</p>
+                                {media.analysis && typeof media.analysis === 'object' && (
+                          <div className="mt-1 text-xs text-green-700">
+                            {Object.entries(media.analysis).map(([k, v], idx) => (
+                              <p key={idx}>
+                                {k.replace(/_/g, ' ')}: {v}
+                              </p>
+                            ))}
+                          </div>
+                        )}
+                              </div>
+                            );
+                          })}
+                        </td>
+                      );
+                    }
 
-        // Case 3: Simple fields
-        return (
-          <td key={i} className="border p-2">{val}</td>
-        );
-      })}
-    </tr>
-  ))}
-</tbody>
+                    // Case 2: Other nested objects
+                    if (typeof val === 'object' && val !== null) {
+                      return (
+                        <td key={i} className="border p-2">
+                          <pre className="whitespace-pre-wrap text-xs">{JSON.stringify(val, null, 2)}</pre>
+                        </td>
+                      );
+                    }
 
-        </table>
-      )}
+                    // Case 3: Simple fields
+                    return (
+                      <td key={i} className="border p-2">{val}</td>
+                    );
+                  })}
+                </tr>
+              ))}
+            </tbody>
 
-      {!loading && results.length === 0 && (
-        <p className="mt-4 text-gray-500">No results found.</p>
-      )}
+          </table>
+        )}
+
+        {!loading && results.length === 0 && (
+          <p className="mt-4 text-gray-500">No results found.</p>
+        )}
     </div>
   )
 }
