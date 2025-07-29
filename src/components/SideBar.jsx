@@ -30,7 +30,7 @@ const SidebarFilters = ({ media_filters, setMedia_filters, analysis_filters, set
     return (
         <div className="sidebar-filters">
           <fieldset>
-            <legend>Filter for Media Information</legend>
+            <legend>Filter based on Media Information</legend>
             <label>
                 Source of Images:
                 <select name="source_type" onChange={handleMediaChange}>
@@ -45,7 +45,7 @@ const SidebarFilters = ({ media_filters, setMedia_filters, analysis_filters, set
           </fieldset>
     
           <fieldset>
-            <legend>Analysis Filters</legend>
+            <legend>Filter based on Media Analysis</legend>
             {/* Tags */} 
       
             {Object.entries(tags).map(([fieldName, options]) => (

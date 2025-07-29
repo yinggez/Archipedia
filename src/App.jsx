@@ -207,10 +207,10 @@ function App() {
   return (
     <div className="app-container">
       
-      <h1 className="text-2xl font-bold mb-4">ArchPedia</h1>
+      <h1 className="text-2xl font-bold mb-4">ArchiPedia</h1>
       <form onSubmit={handleSubmit} className="query-form">
         <header className="sticky-header">
-            Filter for Project Information
+        <legend>Filter based on Project Information</legend>
             <ProjectFilters filters={project_filters} setFilters={setProject_filters} />
             <button type="submit" className="submit-btn">Run Query</button>
         </header>
