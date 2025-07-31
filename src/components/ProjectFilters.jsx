@@ -235,6 +235,91 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="Vietnam">Vietnam</option>
         </select>
       </label>
+      {/* Keywords Used */}
+      <label>
+        Keywords Used:
+        <select name="keywords" onChange={handleChange}>
+            <option value="">All</option>
+            <option value="Keywords used in Nexis Uni: Masterplan AND Urban AND City AND Construction AND Development AND Project AND Land">Keywords used in Nexis Uni: Masterplan AND Urban AND City AND Construction AND Development AND Project AND Land</option>
+            <option value="Keywords used in Nexis Uni: New City AND Architecture">Keywords used in Nexis Uni: New City AND Architecture</option>
+            <option value="Keywords used in Nexis Uni: New City AND Utopia">Keywords used in Nexis Uni: New City AND Utopia</option>
+        </select>
+      </label>
+      {/* Architecture Firm */}
+      <label>
+        Architecture Firm:
+        <select name="firm" onChange={handleChange}>
+            <option value="">All</option>
+            <option value="AECOM & TfNSW">AECOM & TfNSW</option>
+            <option value="Allies and Morrison (lead masterplan)">Allies and Morrison (lead masterplan)</option>
+            <option value="Anthem Properties (master plan)">Anthem Properties (master plan)</option>
+            <option value="A‑Seven Corporation">A‑Seven Corporation</option>
+            <option value="Baku State Design Institute">Baku State Design Institute</option>
+            <option value="Biastekno (design of residential buildings)">Biastekno (design of residential buildings)</option>
+            <option value="Bjarke Ingels Group">Bjarke Ingels Group</option>
+            <option value="Bjarke Ingels Group (BIG)">Bjarke Ingels Group (BIG)</option>
+            <option value="Bradfield Development Authority">Bradfield Development Authority</option>
+            <option value="Breathe Architects">Breathe Architects</option>
+            <option value="California Forever">California Forever</option>
+            <option value="CapitaLand Group,  UOA Group">CapitaLand Group,  UOA Group</option>
+            <option value="Central Landscape Architecture (masterplan), AECOM (consultant)">Central Landscape Architecture (masterplan), AECOM (consultant)</option>
+            <option value="commissioned by Donegal County Council, led by the Regeneration and Development Team and is funded by the Urban Regeneration and Development Fund (URDF)">commissioned by Donegal County Council, led by the Regeneration and Development Team and is funded by the Urban Regeneration and Development Fund (URDF)</option>
+            <option value="Cross Works">Cross Works</option>
+            <option value="Distance Studio Consultants (DSC)">Distance Studio Consultants (DSC)</option>
+            <option value="DP Architects (master plan), DP Green, DP Urban">DP Architects (master plan), DP Green, DP Urban</option>
+            <option value="DP Architects (masterplan), Ramboll (mobility masterplan), SOM (108‑story Financial Tower design)">DP Architects (masterplan), Ramboll (mobility masterplan), SOM (108‑story Financial Tower design)</option>
+            <option value="Foster + Partners">Foster + Partners</option>
+            <option value="Foster and Partners">Foster and Partners</option>
+            <option value="HCMA Architecture + Design (lead), structural by Fast + Epp">HCMA Architecture + Design (lead), structural by Fast + Epp</option>
+            <option value="HKS Architects">HKS Architects</option>
+            <option value="Hong Kong Civil Engineering & Development Department (CEDD)">Hong Kong Civil Engineering & Development Department (CEDD)</option>
+            <option value="IND Architects & Knight Frank">IND Architects & Knight Frank</option>
+            <option value="In-house Aarize Group design team">In-house Aarize Group design team</option>
+            <option value="Jeddah Central Development Company">Jeddah Central Development Company</option>
+            <option value="Kimley-Horn">Kimley-Horn</option>
+            <option value="LW Design Group">LW Design Group</option>
+            <option value="Mathews Nielsen Landscape Architects">Mathews Nielsen Landscape Architects</option>
+            <option value="Meinhardt Group">Meinhardt Group</option>
+            <option value="Multiple: Steidle Architekten (works such as Werk3, Werk4), MVRDV (Werk12), Chapman Taylor (Plaza), Nieto Sobejano (Optineo), KAAN Architecten (iCampus), OS A Ochs Schmidhuber (Atlas Tower)">Multiple: Steidle Architekten (works such as Werk3, Werk4), MVRDV (Werk12), Chapman Taylor (Plaza), Nieto Sobejano (Optineo), KAAN Architecten (iCampus), OS A Ochs Schmidhuber (Atlas Tower)</option>
+            <option value="NEOM Development Company with DMAA (urban designer for Phase 1); architects include David Adjaye, Norman Foster (initially), Gensler, Delugan Meissl, UN Studios, LAVA & more">NEOM Development Company with DMAA (urban designer for Phase 1); architects include David Adjaye, Norman Foster (initially), Gensler, Delugan Meissl, UN Studios, LAVA & more</option>
+            <option value="NODE Studio">NODE Studio</option>
+            <option value="Office for Metropolitan Architecture (OMA), with LOLA Landscape Architects">Office for Metropolitan Architecture (OMA), with LOLA Landscape Architects</option>
+            <option value="Pelli Clarke & Partners (skyscrapers), Heatherwick Studio (public realm & low-rise), Sou Fujimoto Architects, Yabu Pushelberg, Marco Costanzi Architects, SCDA Architects">Pelli Clarke & Partners (skyscrapers), Heatherwick Studio (public realm & low-rise), Sou Fujimoto Architects, Yabu Pushelberg, Marco Costanzi Architects, SCDA Architects</option>
+            <option value="Pininfarina Architecture (masterplan)">Pininfarina Architecture (masterplan)</option>
+            <option value="PK Das & Associates (masterplan/architecture)">PK Das & Associates (masterplan/architecture)</option>
+            <option value="Saint Paul Port Authority">Saint Paul Port Authority</option>
+            <option value="Sid Lee Architecture">Sid Lee Architecture</option>
+            <option value="Sidewalk Labs (subsidiary of Alphabet/Google); Waterfront Toronto as planning partner ">Sidewalk Labs (subsidiary of Alphabet/Google); Waterfront Toronto as planning partner </option>
+            <option value="Skidmore, Owings & Merrill">Skidmore, Owings & Merrill</option>
+            <option value="Skidmore, Owings & Merrill (lead), Architects 49, Plan Associates">Skidmore, Owings & Merrill (lead), Architects 49, Plan Associates</option>
+            <option value="Stantec">Stantec</option>
+            <option value="Studio G Architects">Studio G Architects</option>
+            <option value="Tegel Projekt GmbH">Tegel Projekt GmbH</option>
+            <option value="Thompson Thrift">Thompson Thrift</option>
+            <option value="TLS Landscape Architecture, Tianhua Architecture Planning & Engineering Ltd">TLS Landscape Architecture, Tianhua Architecture Planning & Engineering Ltd</option>
+            <option value="Townland (Phase 2 masterplan); Hadi Vincent Architect (residential architecture)">Townland (Phase 2 masterplan); Hadi Vincent Architect (residential architecture)</option>
+            <option value="Urban+">Urban+</option>
+            <option value="Whiteland Corporation">Whiteland Corporation</option>
+            <option value="ZGF Architects">ZGF Architects</option>
+            <option value="Zyscovich Architects">Zyscovich Architects</option>
+        </select>
+      </label>
+      {/* Visualization Agency */}
+      <label>
+        Visualization Agency:
+        <select name="visualizer" onChange={handleChange}>
+            <option value="">All</option>
+            <option value="Beauty & The Bit">Beauty & The Bit</option>
+            <option value="Beauty & The Bit (image production)">Beauty & The Bit (image production)</option>
+            <option value="Brick Visual / Atchain">Brick Visual / Atchain</option>
+            <option value="Greenspace">Greenspace</option>
+            <option value="In-house renderings">In-house renderings</option>
+            <option value="NOAN Architects">NOAN Architects</option>
+            <option value="Not available">Not available</option>
+            <option value="Part of in-house NEOM design team">Part of in-house NEOM design team</option>
+            <option value="SNT Visual">SNT Visual</option>
+        </select>
+      </label>
         </div>
    
       );
