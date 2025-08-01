@@ -341,7 +341,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
-            <option value=NULL>No Information</option>
+            <option value="Null">No Information</option>
         </select>
       </label>
         </div>
