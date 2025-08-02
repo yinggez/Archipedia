@@ -1,6 +1,17 @@
 const ProjectFilters = ({ filters, setFilters }) => {
     const handleChange = (e) => {
-      setFilters({ ...filters, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+
+        let parsedValue;
+        if (value === "") {
+          parsedValue = undefined;
+        } else if (value === "__null__") {
+          parsedValue = null;
+        } else {
+          parsedValue = value;
+        }
+
+        setFilters({ ...filters, [name]: parsedValue });
     };
 
     return (
@@ -341,7 +352,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="2022">2022</option>
             <option value="2023">2023</option>
             <option value="2024">2024</option>
-            <option value="Null">No Information</option>
+            <option value="__null__">No Information</option>
         </select>
       </label>
         </div>
