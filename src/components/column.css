@@ -1,0 +1,13 @@
+.fieldsets-container {
+    display: flex;
+    gap: 1rem; /* spacing between them */
+    width: 80vw;
+  }
+  
+  .fieldsets-container fieldset {
+    flex: 1;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    width: 100px;
+  }
+  

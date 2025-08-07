@@ -1,97 +1,12 @@
+import './header.css'
 const ProjectFilters = ({ filters, setFilters }) => {
     const handleChange = (e) => {
       setFilters({ ...filters, [e.target.name]: e.target.value });
     };
 
     return (
-        <div className="project-filters">
-          <label>
-        Continent:
-        <select name="continent" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
-            <option value="Africa">Africa</option>
-            <option value="North America">North America</option>
-            <option value="South America">South America</option>
-            <option value="Australia">Australia</option>
-            <option value="Antarctica">Antarctica</option>
-        </select>
-      </label>
-      {/* Ownership form */}
-      <label>
-        Ownership Type:
-        <select name="ownership_form" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="Private">Private</option>
-            <option value="Public">Public</option>
-            <option value="Public–Private Partnership">Public–Private Partnership</option>
-        </select>
-      </label>
-
-      {/* Project ID */}
-      <label>
-        Project ID:
-        <select name="project_id" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="2019001">2019001</option>
-            <option value="2019002">2019002</option>
-            <option value="2019003">2019003</option>
-            <option value="2019004">2019004</option>
-            <option value="2019005">2019005</option>
-            <option value="2019006">2019006</option>
-            <option value="2019007">2019007</option>
-            <option value="2020001">2020001</option>
-            <option value="2020002">2020002</option>
-            <option value="2020003">2020003</option>
-            <option value="2020004">2020004</option>
-            <option value="2020005">2020005</option>
-            <option value="2020006">2020006</option>
-            <option value="2020007">2020007</option>
-            <option value="2021001">2021001</option>
-            <option value="2021002">2021002</option>
-            <option value="2021003">2021003</option>
-            <option value="2021004">2021004</option>
-            <option value="2021005">2021005</option>
-            <option value="2021006">2021006</option>
-            <option value="2021007">2021007</option>
-            <option value="2022001">2022001</option>
-            <option value="2022002">2022002</option>
-            <option value="2022003">2022003</option>
-            <option value="2022004">2022004</option>
-            <option value="2022005">2022005</option>
-            <option value="2022007">2022007</option>
-            <option value="2022008">2022008</option>
-            <option value="2022009">2022009</option>
-            <option value="2023001">2023001</option>
-            <option value="2023002">2023002</option>
-            <option value="2023003">2023003</option>
-            <option value="2023004">2023004</option>
-            <option value="2023005">2023005</option>
-            <option value="2023006">2023006</option>
-            <option value="2023007">2023007</option>
-            <option value="2023008">2023008</option>
-            <option value="2023009">2023009</option>
-            <option value="2023010">2023010</option>
-            <option value="2023011">2023011</option>
-            <option value="2023013">2023013</option>
-            <option value="2023014">2023014</option>
-            <option value="2023016">2023016</option>
-            <option value="2024001">2024001</option>
-            <option value="2024002">2024002</option>
-            <option value="2024003">2024003</option>
-            <option value="2024006">2024006</option>
-            <option value="2024007">2024007</option>
-            <option value="2024008">2024008</option>
-            <option value="2024009">2024009</option>
-            <option value="2024010">2024010</option>
-            <option value="2024011">2024011</option>
-            <option value="2024012">2024012</option>
-            <option value="2024013">2024013</option>
-            <option value="2024014">2024014</option>
-        </select>
-      </label>
-      {/* Project name */}
+        <div className="header-filters">
+          {/* Project name */}
       <label>
         Project Name:
         <select name="name" onChange={handleChange}>
@@ -153,6 +68,51 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="Califonia Forever">Califonia Forever</option>
         </select>
       </label>
+          <label>
+        Continent:
+        <select name="continent" onChange={handleChange}>
+            <option value="">All</option>
+            <option value="Asia">Asia</option>
+            <option value="Europe">Europe</option>
+            <option value="Africa">Africa</option>
+            <option value="North America">North America</option>
+            <option value="South America">South America</option>
+            <option value="Australia">Australia</option>
+            <option value="Antarctica">Antarctica</option>
+        </select>
+      </label>
+      {/* Country */}
+      <label>
+        Country:
+        <select name="country" onChange={handleChange}>
+            <option value="">All</option>
+            <option value="Cambodia">Cambodia</option>
+            <option value="Thailand">Thailand</option>
+            <option value="Canada">Canada</option>
+            <option value="Finland">Finland</option>
+            <option value="Germany">Germany</option>
+            <option value="Japan">Japan</option>
+            <option value="China">China</option>
+            <option value="Australia">Australia</option>
+            <option value="Azerbaijan">Azerbaijan</option>
+            <option value="Bhutan">Bhutan</option>
+            <option value="Egypt">Egypt</option>
+            <option value="England">England</option>
+            <option value="India">India</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Ireland">Ireland</option>
+            <option value="Netherlands">Netherlands</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="Russia">Russia</option>
+            <option value="Saudi Arabia">Saudi Arabia</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+            <option value="Sultanate of Oman">Sultanate of Oman</option>
+            <option value="United Arab Emirates">United Arab Emirates</option>
+            <option value="United States of America">United States of America</option>
+            <option value="Uzbekistan">Uzbekistan</option>
+            <option value="Vietnam">Vietnam</option>
+        </select>
+      </label>
       {/* City */}
       <label>
         City:
@@ -203,38 +163,42 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="Gurugram">Gurugram</option>
         </select>
       </label>
-      {/* Country */}
+      
+      {/* Ownership form */}
       <label>
-        Country:
-        <select name="country" onChange={handleChange}>
+        Ownership Type:
+        <select name="ownership_form" onChange={handleChange}>
             <option value="">All</option>
-            <option value="Cambodia">Cambodia</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Canada">Canada</option>
-            <option value="Finland">Finland</option>
-            <option value="Germany">Germany</option>
-            <option value="Japan">Japan</option>
-            <option value="China">China</option>
-            <option value="Australia">Australia</option>
-            <option value="Azerbaijan">Azerbaijan</option>
-            <option value="Bhutan">Bhutan</option>
-            <option value="Egypt">Egypt</option>
-            <option value="England">England</option>
-            <option value="India">India</option>
-            <option value="Indonesia">Indonesia</option>
-            <option value="Ireland">Ireland</option>
-            <option value="Netherlands">Netherlands</option>
-            <option value="Pakistan">Pakistan</option>
-            <option value="Russia">Russia</option>
-            <option value="Saudi Arabia">Saudi Arabia</option>
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="Sultanate of Oman">Sultanate of Oman</option>
-            <option value="United Arab Emirates">United Arab Emirates</option>
-            <option value="United States of America">United States of America</option>
-            <option value="Uzbekistan">Uzbekistan</option>
-            <option value="Vietnam">Vietnam</option>
+            <option value="Private">Private</option>
+            <option value="Public">Public</option>
+            <option value="Public–Private Partnership">Public–Private Partnership</option>
         </select>
       </label>
+      {/* PR Year */}
+      <label>
+        Year of First PR:
+        <select name="PR_year" onChange={handleChange}>
+            <option value="">All</option>
+            <option value="2003">2003</option>
+            <option value="2006">2006</option>
+            <option value="2009">2009</option>
+            <option value="2011">2011</option>
+            <option value="2012">2012</option>
+            <option value="2013">2013</option>
+            <option value="2015">2015</option>
+            <option value="2016">2016</option>
+            <option value="2017">2017</option>
+            <option value="2018">2018</option>
+            <option value="2019">2019</option>
+            <option value="2020">2020</option>
+            <option value="2021">2021</option>
+            <option value="2022">2022</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="Null">No Information</option>
+        </select>
+      </label>
+    
       {/* Keywords Used */}
       <label>
         Keywords Used:
@@ -243,6 +207,68 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="Keywords used in Nexis Uni: Masterplan AND Urban AND City AND Construction AND Development AND Project AND Land">Keywords used in Nexis Uni: Masterplan AND Urban AND City AND Construction AND Development AND Project AND Land</option>
             <option value="Keywords used in Nexis Uni: New City AND Architecture">Keywords used in Nexis Uni: New City AND Architecture</option>
             <option value="Keywords used in Nexis Uni: New City AND Utopia">Keywords used in Nexis Uni: New City AND Utopia</option>
+        </select>
+      </label>
+      {/* Project ID */}
+      <label>
+        Project ID:
+        <select name="project_id" onChange={handleChange}>
+            <option value="">All</option>
+            <option value="2019001">2019001</option>
+            <option value="2019002">2019002</option>
+            <option value="2019003">2019003</option>
+            <option value="2019004">2019004</option>
+            <option value="2019005">2019005</option>
+            <option value="2019006">2019006</option>
+            <option value="2019007">2019007</option>
+            <option value="2020001">2020001</option>
+            <option value="2020002">2020002</option>
+            <option value="2020003">2020003</option>
+            <option value="2020004">2020004</option>
+            <option value="2020005">2020005</option>
+            <option value="2020006">2020006</option>
+            <option value="2020007">2020007</option>
+            <option value="2021001">2021001</option>
+            <option value="2021002">2021002</option>
+            <option value="2021003">2021003</option>
+            <option value="2021004">2021004</option>
+            <option value="2021005">2021005</option>
+            <option value="2021006">2021006</option>
+            <option value="2021007">2021007</option>
+            <option value="2022001">2022001</option>
+            <option value="2022002">2022002</option>
+            <option value="2022003">2022003</option>
+            <option value="2022004">2022004</option>
+            <option value="2022005">2022005</option>
+            <option value="2022007">2022007</option>
+            <option value="2022008">2022008</option>
+            <option value="2022009">2022009</option>
+            <option value="2023001">2023001</option>
+            <option value="2023002">2023002</option>
+            <option value="2023003">2023003</option>
+            <option value="2023004">2023004</option>
+            <option value="2023005">2023005</option>
+            <option value="2023006">2023006</option>
+            <option value="2023007">2023007</option>
+            <option value="2023008">2023008</option>
+            <option value="2023009">2023009</option>
+            <option value="2023010">2023010</option>
+            <option value="2023011">2023011</option>
+            <option value="2023013">2023013</option>
+            <option value="2023014">2023014</option>
+            <option value="2023016">2023016</option>
+            <option value="2024001">2024001</option>
+            <option value="2024002">2024002</option>
+            <option value="2024003">2024003</option>
+            <option value="2024006">2024006</option>
+            <option value="2024007">2024007</option>
+            <option value="2024008">2024008</option>
+            <option value="2024009">2024009</option>
+            <option value="2024010">2024010</option>
+            <option value="2024011">2024011</option>
+            <option value="2024012">2024012</option>
+            <option value="2024013">2024013</option>
+            <option value="2024014">2024014</option>
         </select>
       </label>
       {/* Architecture Firm */}
@@ -320,30 +346,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="SNT Visual">SNT Visual</option>
         </select>
       </label>
-      {/* PR Year */}
-      <label>
-        Year of First PR:
-        <select name="PR_year" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="2003">2003</option>
-            <option value="2006">2006</option>
-            <option value="2009">2009</option>
-            <option value="2011">2011</option>
-            <option value="2012">2012</option>
-            <option value="2013">2013</option>
-            <option value="2015">2015</option>
-            <option value="2016">2016</option>
-            <option value="2017">2017</option>
-            <option value="2018">2018</option>
-            <option value="2019">2019</option>
-            <option value="2020">2020</option>
-            <option value="2021">2021</option>
-            <option value="2022">2022</option>
-            <option value="2023">2023</option>
-            <option value="2024">2024</option>
-            <option value="Null">No Information</option>
-        </select>
-      </label>
+      
         </div>
    
       );

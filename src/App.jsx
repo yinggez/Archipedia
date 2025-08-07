@@ -1,13 +1,14 @@
 
 import { supabase } from './supabaseClient'
 import './result_table.css';
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import './components/query.css'
 import ProjectFilters from './components/ProjectFilters';
 import SideBar from './components/SideBar';
 import ColumnSelector from './components/ColumnSelector';
 
 function App() {
+  const collapseRef = useRef(null);
   const [project_filters, setProject_filters] = useState({
     continent: '',
     PR_year: '',
@@ -123,6 +124,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(analysis_filters);
+    
     handleQuery({ project_filters, media_filters, analysis_filters, columns, media_columns, analysis_columns })
   }
   const [results, setResults] = useState([])
@@ -136,8 +138,10 @@ function App() {
   
 
   const handleQuery = async ({ project_filters, media_filters, analysis_filters, columns, media_columns, analysis_columns }) => {
-    setLoading(true)
-
+    setLoading(true);
+    if (collapseRef.current) {
+      collapseRef.current.open = false;
+    }
     try {
 
       const joinMedia = Object.values(media_columns).some(val => val !== false);
@@ -206,13 +210,15 @@ function App() {
 
   return (
     <div className="app-container">
-      
-      <h1 className="text-2xl font-bold mb-4">ArchiPedia</h1>
+  
+      <h2 className="text-2xl font-bold mb-4">ArchiPedia</h2>
       <form onSubmit={handleSubmit} className="query-form">
         <header className="sticky-header">
-        <legend>Filter based on Project Information</legend>
+        <fieldset className="filter-fieldset">
+            <legend>Filter based on Project Information</legend>
             <ProjectFilters filters={project_filters} setFilters={setProject_filters} />
             <button type="submit" className="submit-btn">Run Query</button>
+            </fieldset>
         </header>
 
         <div className="query-main">
@@ -232,6 +238,7 @@ function App() {
             setMedia_columns={setMedia_columns}
             analysis_columns={analysis_columns}
             setAnalysis_columns={setAnalysis_columns}
+            collapseRef={collapseRef}
           />
           
         
@@ -239,66 +246,78 @@ function App() {
         {loading && <p>Loading...</p>}
 
         {!loading && results.length > 0 && (
-          <table className="table-auto border-collapse border mt-6 w-full">
+          
+          <div className="table-scroll-container">
+            <p>{results.length} {results.length === 1 ? 'result' : 'projects'} found {' — '}
+      {results.reduce((acc, row) => {
+        if (Array.isArray(row.mediafiles)) {
+          return acc + row.mediafiles.length;
+        }
+        return acc;
+      }, 0)}{' '}
+      {results.reduce((acc, row) => Array.isArray(row.mediafiles) ? acc + row.mediafiles.length : acc, 0) === 1 ? 'image' : 'images'} found</p>
+            
+          <table className="result-table table-auto border-collapse border mt-6">
             <thead>
               <tr>
                 {Object.keys(results[0]).map((key) => (
-                  <th key={key} className="border p-2 bg-gray-100">{key}</th>
-                ))}
+                          <th key={key} className="border p-2 bg-gray-100">{key}</th>
+                        ))}
               </tr>
             </thead>
             <tbody>
               {results.map((row, idx) => (
-                <tr key={idx}>
-                  {Object.entries(row).map(([key, val], i) => {
-
-                    // Case 1: Handle 'mediafiles' array
-                    if (key === 'mediafiles' && Array.isArray(val)) {
-                      return (
-                        <td key={i} className="border p-2">
-                          {val.map((media, j) => {
-                            const path = `${media.folder_path}/${media.filename}`;
-                            const imageUrl = getImageUrl(path);
+                        <tr key={idx}>
+                          {Object.entries(row).map(([key, val], i) => {
+        
+                            // Case 1: Handle 'mediafiles' array
+                            if (key === 'mediafiles' && Array.isArray(val)) {
+                              return (
+                                <td key={i} className="border p-2">
+                                  {val.map((media, j) => {
+                                    const path = `${media.folder_path}/${media.filename}`;
+                                    const imageUrl = getImageUrl(path);
+                                    return (
+                                      <div key={j} className="mb-4">
+                                        <a href={imageUrl} target='_blank' rel="noopener noreferrer"><img src={imageUrl} alt={media.media_name} width="150" /></a>
+                                        <p className="text-sm font-semibold mt-1">{media.media_name}</p>
+                                        <p className="text-xs text-gray-600">Filename: {media.filename}</p>
+                                        {media.analysis && typeof media.analysis === 'object' && (
+                                  <div className="mt-1 text-xs text-green-700">
+                                    {Object.entries(media.analysis).map(([k, v], idx) => (
+                                      <p key={idx}>
+                                        {k.replace(/_/g, ' ')}: {v}
+                                      </p>
+                                    ))}
+                                  </div>
+                                )}
+                                      </div>
+                                    );
+                                  })}
+                                </td>
+                              );
+                            }
+        
+                            // Case 2: Other nested objects
+                            if (typeof val === 'object' && val !== null) {
+                              return (
+                                <td key={i} className="border p-2">
+                                  <pre className="whitespace-pre-wrap text-xs">{JSON.stringify(val, null, 2)}</pre>
+                                </td>
+                              );
+                            }
+        
+                            // Case 3: Simple fields
                             return (
-                              <div key={j} className="mb-4">
-                                <a href={imageUrl} target='_blank' rel="noopener noreferrer"><img src={imageUrl} alt={media.media_name} width="150" /></a>
-                                <p className="text-sm font-semibold mt-1">{media.media_name}</p>
-                                <p className="text-xs text-gray-600">Filename: {media.filename}</p>
-                                {media.analysis && typeof media.analysis === 'object' && (
-                          <div className="mt-1 text-xs text-green-700">
-                            {Object.entries(media.analysis).map(([k, v], idx) => (
-                              <p key={idx}>
-                                {k.replace(/_/g, ' ')}: {v}
-                              </p>
-                            ))}
-                          </div>
-                        )}
-                              </div>
+                              <td key={i} className="border p-2">{val}</td>
                             );
                           })}
-                        </td>
-                      );
-                    }
-
-                    // Case 2: Other nested objects
-                    if (typeof val === 'object' && val !== null) {
-                      return (
-                        <td key={i} className="border p-2">
-                          <pre className="whitespace-pre-wrap text-xs">{JSON.stringify(val, null, 2)}</pre>
-                        </td>
-                      );
-                    }
-
-                    // Case 3: Simple fields
-                    return (
-                      <td key={i} className="border p-2">{val}</td>
-                    );
-                  })}
-                </tr>
-              ))}
-            </tbody>
-
+                        </tr>
+                      ))}
+                    </tbody>
           </table>
+        </div>
+        
         )}
 
         {!loading && results.length === 0 && (

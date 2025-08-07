@@ -1,0 +1,18 @@
+.header-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    align-items: flex-end;
+  }
+  
+ 
+  /* Dropdowns and inputs */
+  .header-filters select,
+  .header-filters input[type="text"] {
+    max-width: 140px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  
