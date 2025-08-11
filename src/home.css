@@ -1,0 +1,60 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+.homepage {
+    height: 100%;           
+    margin: 0;  
+    text-align: center;
+    padding-left: 3rem;
+    padding-right: 3rem;
+    font-family: 'Montserrat', cursive;
+    padding-top: 6rem;   
+  }
+
+h1 {
+    font-size: 4rem;
+    margin-bottom: 0px;
+}
+
+h2 {
+    font-style: italic;
+}
+
+.maintext {
+    font-size: 2rem;
+}
+
+
+span {
+  font-size: 3em;
+  transform: translate(-50%,-50%);
+  background-image: linear-gradient(gold, gold);
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+transition: background-size .7s, background-position .5s ease-in-out;
+}
+
+span:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position .7s, background-size .5s ease-in-out;
+}
+
+a {
+    color: inherit;        /* Use the same text color as the surrounding text */
+    text-decoration: none; /* Remove underline */
+  }
+  
+  a:visited {
+    color: inherit; /* Disable purple visited link color */
+  }
+  
+  a:hover {
+    color: inherit; /* Prevent hover color change */
+  }
+.footnote {
+    position: absolute;
+    bottom: 0;
+    font-size: 15px;
+}

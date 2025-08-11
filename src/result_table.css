@@ -1,7 +1,17 @@
+
+.scrollable {
+  max-width: calc(100vw - 260px);
+  overflow-x: auto;
+}
+
 table {
-    width: 100%;
+    min-width: max-content;
     border-collapse: collapse;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  thead {
+    background-color: #79c2ad;
   }
   
   th, td {
@@ -9,14 +19,11 @@ table {
     padding: 0.75rem;
     vertical-align: top;
     text-align: left;
+    word-wrap: break-word; 
+    overflow-wrap: anywhere;
+    max-width: 200px;
   }
-  
-  th {
-    background-color: #f3f4f6;
-    font-weight: 600;
-    font-size: 0.95rem;
-  }
-  
+ 
   td img {
     display: block;
     max-width: 100%;

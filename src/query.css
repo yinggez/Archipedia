@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+h3 {
+  margin-top: 1rem;
+  font-family: 'Montserrat', cursive;
+  text-align: center;
+}
+
+.query-form {
+    display: flex;
+    flex-direction: column;
+  }
+
+ 
+form.query-form label {
+    display: block;
+    font-weight: 400;
+    color: #111827;
+  }
+  
+form.query-form label input[type="text"],
+  form.query-form label select {
+    display: block;
+    width: 100%;
+    margin-top: 0.25rem;
+    padding: 0.5rem;
+    border: 1px solid #d1d5db;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    background-color: white;
+  }
+  
+form.query-form button[type="submit"] {
+    margin-top: 0;
+    background-color: rgba(255, 217, 0, 0.59);
+    color: rgb(85, 66, 65);
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+form.query-form button[type="submit"]:hover {
+    background-color: #ffd700;
+  }
+  
+.sidebar {
+    width: 260px;
+    padding: 1rem;
+    background-color: #f1f1f1;
+    border-right: 1px solid #ddd;
+  }
+
+.sticky-header {
+    position: sticky;
+    top: 0;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ccc;
+    z-index: 10;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem; 
+     
+  }
+
+
+.filter-fieldset {
+    display: flex;         /* enable flex */
+    align-items: center;   /* vertical alignment */
+    gap: 1rem;             /* spacing between items */
+    padding: 1rem;
+    border: 1px solid #ccc;
+    width: 100%;           /* or desired width */
+    box-sizing: border-box; /* to respect padding */
+  }
+  
+.query-main {
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+  }
+  
+.main-content {
+    flex: 1;
+    padding: 1rem;
+  }
+  
+  fieldset {
+    margin-bottom: 0.5rem;
+  }
+  
+  legend {
+    font-weight: bold;
+    
+  }
+  
+  details {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  details summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  pre {
+    background-color: #f4f4f4;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.85rem;
+    overflow-x: auto;
+  }
+  
+  .text-sm {
+    font-size: 0.875rem;
+  }
+  
+  .text-xs {
+    font-size: 0.75rem;
+  }
+  
+  .text-green-700 {
+    color: #047857;
+  }
+  
+  
+  
+  
