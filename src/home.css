@@ -8,11 +8,11 @@
     padding-left: 3rem;
     padding-right: 3rem;
     font-family: 'Montserrat', cursive;
-    padding-top: 6rem;   
+    padding-top: 3rem;   
   }
 
 h1 {
-    font-size: 4rem;
+    font-size: 3rem;
     margin-bottom: 0px;
 }
 
@@ -21,12 +21,12 @@ h2 {
 }
 
 .maintext {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 
 span {
-  font-size: 3em;
+  font-size: 2em;
   transform: translate(-50%,-50%);
   background-image: linear-gradient(gold, gold);
   background-size: 100% 10px;
