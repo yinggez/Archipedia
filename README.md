@@ -1,4 +1,4 @@
-# Archpedia
+# Archipedia
 database interface for archpedia
 
 
