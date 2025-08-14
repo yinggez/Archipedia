@@ -282,20 +282,18 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="A‑Seven Corporation">A‑Seven Corporation</option>
             <option value="Baku State Design Institute">Baku State Design Institute</option>
             <option value="Biastekno (design of residential buildings)">Biastekno (design of residential buildings)</option>
-            <option value="Bjarke Ingels Group">Bjarke Ingels Group</option>
             <option value="Bjarke Ingels Group (BIG)">Bjarke Ingels Group (BIG)</option>
             <option value="Bradfield Development Authority">Bradfield Development Authority</option>
             <option value="Breathe Architects">Breathe Architects</option>
-            <option value="California Forever">California Forever</option>
+            <option value="SITELAB Urban Studio, CAW Architects">SITELAB Urban Studio, CAW Architects</option>
             <option value="CapitaLand Group,  UOA Group">CapitaLand Group,  UOA Group</option>
             <option value="Central Landscape Architecture (masterplan), AECOM (consultant)">Central Landscape Architecture (masterplan), AECOM (consultant)</option>
-            <option value="commissioned by Donegal County Council, led by the Regeneration and Development Team and is funded by the Urban Regeneration and Development Fund (URDF)">commissioned by Donegal County Council, led by the Regeneration and Development Team and is funded by the Urban Regeneration and Development Fund (URDF)</option>
+            <option value="Not Available">Not Available</option>
             <option value="Cross Works">Cross Works</option>
             <option value="Distance Studio Consultants (DSC)">Distance Studio Consultants (DSC)</option>
             <option value="DP Architects (master plan), DP Green, DP Urban">DP Architects (master plan), DP Green, DP Urban</option>
             <option value="DP Architects (masterplan), Ramboll (mobility masterplan), SOM (108‑story Financial Tower design)">DP Architects (masterplan), Ramboll (mobility masterplan), SOM (108‑story Financial Tower design)</option>
-            <option value="Foster + Partners">Foster + Partners</option>
-            <option value="Foster and Partners">Foster and Partners</option>
+            <option value="Foster + Partners">Foster + Partners</option>
             <option value="HCMA Architecture + Design (lead), structural by Fast + Epp">HCMA Architecture + Design (lead), structural by Fast + Epp</option>
             <option value="HKS Architects">HKS Architects</option>
             <option value="Hong Kong Civil Engineering & Development Department (CEDD)">Hong Kong Civil Engineering & Development Department (CEDD)</option>
@@ -336,7 +334,6 @@ const ProjectFilters = ({ filters, setFilters }) => {
         <select name="visualizer" onChange={handleChange}>
             <option value="">All</option>
             <option value="Beauty & The Bit">Beauty & The Bit</option>
-            <option value="Beauty & The Bit (image production)">Beauty & The Bit (image production)</option>
             <option value="Brick Visual / Atchain">Brick Visual / Atchain</option>
             <option value="Greenspace">Greenspace</option>
             <option value="In-house renderings">In-house renderings</option>
