@@ -5,7 +5,7 @@
 }
 
 table {
-    min-width: max-content;
+    table-layout: auto;
     border-collapse: collapse;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   }
@@ -14,19 +14,33 @@ table {
     background-color: #79c2ad;
   }
   
+  
+  .wrap-col {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    max-width: 200px; 
+    min-width: 100px;
+  }
+
+  .mafields {
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    min-width: 100px; 
+}
   th, td {
     border: 1px solid #ccc;
     padding: 0.75rem;
     vertical-align: top;
     text-align: left;
-    word-wrap: break-word; 
-    overflow-wrap: anywhere;
-    max-width: 200px;
+   
   }
  
   td img {
     display: block;
     max-width: 100%;
+    min-width: 200px;
     height: auto;
     border-radius: 0.25rem;
   }

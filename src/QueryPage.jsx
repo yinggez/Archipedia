@@ -10,6 +10,17 @@ import SideBar from './components/SideBar';
 import ColumnSelector from './components/ColumnSelector';
 
 function QueryPage() {
+    const wrapFields = [
+        "ownership",
+        "firm",
+        "keywords",
+        "project_type",
+        "status",
+        "link_primary",
+        "link_secondary",
+        "link_origin",
+        "notes"
+      ];
     const collapseRef = useRef(null);
     const [project_filters, setProject_filters] = useState({
       name: '',
@@ -242,63 +253,109 @@ function QueryPage() {
         {results.reduce((acc, row) => Array.isArray(row.mediafiles) ? acc + row.mediafiles.length : acc, 0) === 1 ? 'image' : 'images'} found</p>
         <div className='scrollable'>
         <div className="mask">
-            <table>
+            <table className="border-collapse border w-full text-xs">
               <thead>
                 <tr>
                   {Object.keys(results[0]).map((key) => (
-                            <th key={key} className="border p-2 bg-gray-100">{key}</th>
+                            <th key={key} className={`border p-2 bg-gray-100 ${wrapFields.includes(key) ? "wrap-col" : "nowrap-col"}`}>{key}</th>
                           ))}
                 </tr>
               </thead>
               <tbody>
-                {results.map((row, idx) => (
-                          <tr key={idx}>
-                            {Object.entries(row).map(([key, val], i) => {
-          
-                              // Case 1: Handle 'mediafiles' array
-                              if (key === 'mediafiles' && Array.isArray(val)) {
-                                return (
-                                  <td key={i} className="border p-2">
-                                    {val.map((media, j) => {
-                                      const path = `${media.folder_path}/${media.filename}`;
-                                      const imageUrl = getImageUrl(path);
-                                      return (
-                                        <div key={j} className="mb-4">  
-                                          <a href={imageUrl} target='_blank' rel="noopener noreferrer"><img src={imageUrl} alt={media.media_name} width="150" /></a>
-                                          <p className="text-xs text-gray-600">Filename: {media.filename}</p>
-                                          {media.analysis && typeof media.analysis === 'object' && (
-                                            <div className="mt-1 text-xs text-green-700">
-                                              {Object.entries(media.analysis).map(([k, v], idx) => (
-                                                <p key={idx}>
-                                                  {k.replace(/_/g, ' ')}: {v}
-                                                </p>
-                                              ))}
-                                            </div>
-                                          )}
-                                        </div>
-                                      );
-                                    })}
-                                  </td>
-                                );
-                              }
-          
-                              // Case 2: Other nested objects
-                              if (typeof val === 'object' && val !== null) {
-                                return (
-                                  <td key={i} className="border p-2">
-                                    <pre className="whitespace-pre-wrap text-xs">{JSON.stringify(val, null, 2)}</pre>
-                                  </td>
-                                );
-                              }
-          
-                              // Case 3: Simple fields
-                              return (
-                                <td key={i} className="border p-2">{val}</td>
-                              );
-                            })}
-                          </tr>
+  {results.map((row, idx) => (
+    <tr key={idx}>
+      {Object.entries(row).map(([key, val], i) => {
+        
+        if (key === 'mediafiles' && Array.isArray(val)) {
+          return (
+            <td key={i} className="border p-2">
+              <table className="border-collapse border w-full text-xs">
+                <thead>
+                  <tr>
+                    <th className="border p-1">Image</th>
+                    {/* media files header */}
+                    {Object.keys(val[0] || {})
+                    .filter((field) => field !== "analysis" && field !== "folder_path" && field !== "filename")
+                    .map((field) => (
+                        <th key={field} className="border p-1">
+                        {field.replace(/_/g, " ")}
+                        </th>
+                    ))}
+                    {/* analysis header */}
+                    {val[0]?.analysis &&
+                      Object.keys(val[0].analysis).map((field) => (
+                        <th key={field} className="border p-1">
+                          {field.replace(/_/g, " ")}
+                        </th>
+                      ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {val.map((media, j) => {
+                    const path = `${media.folder_path}/${media.filename}`;
+                    const imageUrl = getImageUrl(path);
+
+                    return (
+                      <tr key={j}>
+                        <td className="border p-1">
+                          <a
+                            href={imageUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            <img
+                              src={imageUrl}
+                              alt={media.media_name}
+                              width="100"
+                            />
+                          </a>
+                        </td>
+                        
+                        {/* mediafile fields */}
+                        {Object.keys(media)
+                        .filter((field) => field !== "analysis" && field !== "folder_path" && field !== "filename")
+                        .map((field) => (
+                            <td key={field} className="border p-1 mafields">
+                            {media[field]}
+                            </td>
                         ))}
-                      </tbody>
+
+                        {/* analysis fields */}
+                        {media.analysis &&
+                          Object.entries(media.analysis).map(([k, v]) => (
+                            <td key={k} className="border p-1 mafields">
+                              {v}
+                            </td>
+                          ))}
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </td>
+          );
+        }
+
+        if (typeof val === "object" && val !== null) {
+          return (
+            <td key={i} className="border p-2">
+              <pre className="whitespace-pre-wrap text-xs">
+                {JSON.stringify(val, null, 2)}
+              </pre>
+            </td>
+          );
+        }
+
+        return (
+          <td key={i} className={`border p-2 ${wrapFields.includes(key) ? "wrap-col" : "nowrap-col"}`}>
+            {val}
+          </td>
+        );
+      })}
+    </tr>
+  ))}
+</tbody>
+
             </table>
             </div>
             </div>
