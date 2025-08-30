@@ -315,6 +315,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="Saint Paul Port Authority">Saint Paul Port Authority</option>
             <option value="Sid Lee Architecture">Sid Lee Architecture</option>
             <option value="Sidewalk Labs (subsidiary of Alphabet/Google); Waterfront Toronto as planning partner ">Sidewalk Labs (subsidiary of Alphabet/Google); Waterfront Toronto as planning partner </option>
+            <option value="SITELAB Urban Studio, CAW Architects">SITELAB Urban Studio, CAW Architects</option>            
             <option value="Skidmore, Owings & Merrill">Skidmore, Owings & Merrill</option>
             <option value="Skidmore, Owings & Merrill (lead), Architects 49, Plan Associates">Skidmore, Owings & Merrill (lead), Architects 49, Plan Associates</option>
             <option value="Stantec">Stantec</option>
@@ -327,6 +328,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="Whiteland Corporation">Whiteland Corporation</option>
             <option value="ZGF Architects">ZGF Architects</option>
             <option value="Zyscovich Architects">Zyscovich Architects</option>
+            <option value="Not Available">Not Available</option>
         </select>
       </label>
       {/* Visualization Agency */}
@@ -338,10 +340,11 @@ const ProjectFilters = ({ filters, setFilters }) => {
         <option value="Brick Visual / Atchain">Brick Visual / Atchain</option>
         <option value="Greenspace">Greenspace</option>
         <option value="In-house renderings">In-house renderings</option>
-        <option value="NOAN Architects">NOAN Architects</option>
-        <option value="Not available">Not available</option>
+        <option value="NOAN Architects">NOAN Architects</option> 
         <option value="Part of in-house NEOM design team">Part of in-house NEOM design team</option>
         <option value="SNT Visual">SNT Visual</option>
+        <option value="Not available">Not available</option>
+
 
         </select>
       </label>
