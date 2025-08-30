@@ -163,7 +163,11 @@ function QueryPage() {
           
       let query = supabase.from('projects').select(selectClause);
           Object.entries(project_filters).forEach(([key, value]) => {
-            if (value) query = query.eq(key, value)
+            if (value === "NULL") {
+              query = query.is(key, null); 
+            } else if (value) {
+              query = query.eq(key, value);
+            }
           })
       
           if (filterMedia) {
