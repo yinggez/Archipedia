@@ -10,159 +10,162 @@ const ProjectFilters = ({ filters, setFilters }) => {
       <label>
         Project Name:
         <select name="name" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="Bokor Mountain Resort">Bokor Mountain Resort</option>
-            <option value="One Bangkok">One Bangkok</option>
-            <option value="Sidewalk Toronto">Sidewalk Toronto</option>
-            <option value="Viinikanlahti">Viinikanlahti</option>
-            <option value="Werksviertel">Werksviertel</option>
-            <option value="Azabudai Hills">Azabudai Hills</option>
-            <option value="New Harry Jerome Community Recreation Centre">New Harry Jerome Community Recreation Centre</option>
-            <option value="Sino-Singapore Guangzhou Knowledge City (SSGKC)">Sino-Singapore Guangzhou Knowledge City (SSGKC)</option>
-            <option value="North Hanoi Smart City">North Hanoi Smart City</option>
-            <option value="Meishan California Smart Town (MCSC)">Meishan California Smart Town (MCSC)</option>
-            <option value="Little India">Little India</option>
-            <option value="Colombo Port City">Colombo Port City</option>
-            <option value="Capital Gardens Master Plan">Capital Gardens Master Plan</option>
-            <option value="Toyota Woven City">Toyota Woven City</option>
-            <option value="Jeddah Central">Jeddah Central</option>
-            <option value="Feyenoord City">Feyenoord City</option>
-            <option value="Letterkenny 2040 Regeneration Strategy">Letterkenny 2040 Regeneration Strategy</option>
-            <option value="Ravi Riverfront Urban Development Project">Ravi Riverfront Urban Development Project</option>
-            <option value="The One Beverly Hills">The One Beverly Hills</option>
-            <option value="Telosa">Telosa</option>
-            <option value="Berlin TXL ">Berlin TXL </option>
-            <option value="LRT City Jatibening">LRT City Jatibening</option>
-            <option value="Kota Baru Parahyangan ">Kota Baru Parahyangan </option>
-            <option value="Sycamore CapitaLand">Sycamore CapitaLand</option>
-            <option value="South Yards by Anthem">South Yards by Anthem</option>
-            <option value="The York Central Partnership">The York Central Partnership</option>
-            <option value="Nusantara">Nusantara</option>
-            <option value="Blue Loop">Blue Loop</option>
-            <option value="The Global City">The Global City</option>
-            <option value="Southwark Grounds">Southwark Grounds</option>
-            <option value="Lloyd Center Redevelopment">Lloyd Center Redevelopment</option>
-            <option value="New Tashkent">New Tashkent</option>
-            <option value="Yuzhno-Sakhalinsk Agglomeration">Yuzhno-Sakhalinsk Agglomeration</option>
-            <option value="Northwood Village">Northwood Village</option>
-            <option value="West Palm Beach Downtown Master Plan">West Palm Beach Downtown Master Plan</option>
-            <option value="Sydney Aerotropolis">Sydney Aerotropolis</option>
-            <option value="Fishers District Expansion">Fishers District Expansion</option>
-            <option value="Bally's Casino Chicago">Bally's Casino Chicago</option>
-            <option value="Aghdam Reconstruction">Aghdam Reconstruction</option>
-            <option value="The Heights">The Heights</option>
-            <option value="On the Dot">On the Dot</option>
-            <option value="FCU New Campus">FCU New Campus</option>
-            <option value="Gelephu Mindfulness City">Gelephu Mindfulness City</option>
-            <option value="The Line">The Line</option>
-            <option value="New Administrative Capital">New Administrative Capital</option>
-            <option value="Palm Jebel Ali">Palm Jebel Ali</option>
-            <option value="Amaravati">Amaravati</option>
-            <option value="Hongqiao Qianwan Area">Hongqiao Qianwan Area</option>
-            <option value="Quartier Molson">Quartier Molson</option>
-            <option value="Kau Yi Chau Artificial Islands">Kau Yi Chau Artificial Islands</option>
-            <option value="Bradfield City Centre">Bradfield City Centre</option>
-            <option value="Pier 42">Pier 42</option>
-            <option value="Urban Cubes 71">Urban Cubes 71</option>
-            <option value="South Drive">South Drive</option>
-            <option value="Califonia Forever">Califonia Forever</option>
+        <option value="">All</option>
+<option value="Aghdam Reconstruction">Aghdam Reconstruction</option>
+<option value="Amaravati">Amaravati</option>
+<option value="Azabudai Hills">Azabudai Hills</option>
+<option value="Bally's Casino Chicago">Bally's Casino Chicago</option>
+<option value="Berlin TXL ">Berlin TXL</option>
+<option value="Blue Loop">Blue Loop</option>
+<option value="Bokor Mountain Resort">Bokor Mountain Resort</option>
+<option value="Bradfield City Centre">Bradfield City Centre</option>
+<option value="California Forever">California Forever</option>
+<option value="Capital Gardens Master Plan">Capital Gardens Master Plan</option>
+<option value="Colombo Port City">Colombo Port City</option>
+<option value="FCU New Campus">FCU New Campus</option>
+<option value="Feyenoord City">Feyenoord City</option>
+<option value="Fishers District Expansion">Fishers District Expansion</option>
+<option value="Gelephu Mindfulness City">Gelephu Mindfulness City</option>
+<option value="Hongqiao Qianwan Area">Hongqiao Qianwan Area</option>
+<option value="Jeddah Central">Jeddah Central</option>
+<option value="Kau Yi Chau Artificial Islands">Kau Yi Chau Artificial Islands</option>
+<option value="Kota Baru Parahyangan ">Kota Baru Parahyangan </option>
+<option value="Letterkenny 2040 Regeneration Strategy">Letterkenny 2040 Regeneration Strategy</option>
+<option value="Little India">Little India</option>
+<option value="Lloyd Center Redevelopment">Lloyd Center Redevelopment</option>
+<option value="LRT City Jatibening">LRT City Jatibening</option>
+<option value="Meishan California Smart Town (MCSC)">Meishan California Smart Town (MCSC)</option>
+<option value="New Administrative Capital">New Administrative Capital</option>
+<option value="New Harry Jerome Community Recreation Centre">New Harry Jerome Community Recreation Centre</option>
+<option value="New Tashkent">New Tashkent</option>
+<option value="North Hanoi Smart City">North Hanoi Smart City</option>
+<option value="Northwood Village">Northwood Village</option>
+<option value="Nusantara">Nusantara</option>
+<option value="One Bangkok">One Bangkok</option>
+<option value="On the Dot">On the Dot</option>
+<option value="Palm Jebel Ali">Palm Jebel Ali</option>
+<option value="Pier 42">Pier 42</option>
+<option value="Quartier Molson">Quartier Molson</option>
+<option value="Ravi Riverfront Urban Development Project">Ravi Riverfront Urban Development Project</option>
+<option value="Sidewalk Toronto">Sidewalk Toronto</option>
+<option value="Sino-Singapore Guangzhou Knowledge City (SSGKC)">Sino-Singapore Guangzhou Knowledge City (SSGKC)</option>
+<option value="South Drive">South Drive</option>
+<option value="South Yards by Anthem">South Yards by Anthem</option>
+<option value="Southwark Grounds">Southwark Grounds</option>
+<option value="Sycamore CapitaLand">Sycamore CapitaLand</option>
+<option value="Sydney Aerotropolis">Sydney Aerotropolis</option>
+<option value="Telosa">Telosa</option>
+<option value="The Global City">The Global City</option>
+<option value="The Heights">The Heights</option>
+<option value="The Line">The Line</option>
+<option value="The One Beverly Hills">The One Beverly Hills</option>
+<option value="The York Central Partnership">The York Central Partnership</option>
+<option value="Toyota Woven City">Toyota Woven City</option>
+<option value="Urban Cubes 71">Urban Cubes 71</option>
+<option value="Viinikanlahti">Viinikanlahti</option>
+<option value="Werksviertel">Werksviertel</option>
+<option value="West Palm Beach Downtown Master Plan">West Palm Beach Downtown Master Plan</option>
+<option value="Yuzhno-Sakhalinsk Agglomeration">Yuzhno-Sakhalinsk Agglomeration</option>
+
         </select>
       </label>
           <label>
         Continent:
         <select name="continent" onChange={handleChange}>
             <option value="">All</option>
-            <option value="Asia">Asia</option>
-            <option value="Europe">Europe</option>
             <option value="Africa">Africa</option>
-            <option value="North America">North America</option>
-            <option value="South America">South America</option>
+            <option value="Asia">Asia</option>
             <option value="Australia">Australia</option>
+            <option value="Europe">Europe</option>           
+            <option value="North America">North America</option>
             <option value="Antarctica">Antarctica</option>
+            <option value="South America">South America</option>           
+            
         </select>
       </label>
       {/* Country */}
       <label>
         Country:
         <select name="country" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="Cambodia">Cambodia</option>
-            <option value="Thailand">Thailand</option>
-            <option value="Canada">Canada</option>
-            <option value="Finland">Finland</option>
-            <option value="Germany">Germany</option>
-            <option value="Japan">Japan</option>
-            <option value="China">China</option>
-            <option value="Australia">Australia</option>
-            <option value="Azerbaijan">Azerbaijan</option>
-            <option value="Bhutan">Bhutan</option>
-            <option value="Egypt">Egypt</option>
-            <option value="England">England</option>
-            <option value="India">India</option>
-            <option value="Indonesia">Indonesia</option>
-            <option value="Ireland">Ireland</option>
-            <option value="Netherlands">Netherlands</option>
-            <option value="Pakistan">Pakistan</option>
-            <option value="Russia">Russia</option>
-            <option value="Saudi Arabia">Saudi Arabia</option>
-            <option value="Sri Lanka">Sri Lanka</option>
-            <option value="Sultanate of Oman">Sultanate of Oman</option>
-            <option value="United Arab Emirates">United Arab Emirates</option>
-            <option value="United States of America">United States of America</option>
-            <option value="Uzbekistan">Uzbekistan</option>
-            <option value="Vietnam">Vietnam</option>
+        <option value="">All</option>
+        <option value="Australia">Australia</option>
+        <option value="Azerbaijan">Azerbaijan</option>
+        <option value="Bhutan">Bhutan</option>
+        <option value="Cambodia">Cambodia</option>
+        <option value="Canada">Canada</option>
+        <option value="China">China</option>
+        <option value="Egypt">Egypt</option>
+        <option value="England">England</option>
+        <option value="Finland">Finland</option>
+        <option value="Germany">Germany</option>
+        <option value="India">India</option>
+        <option value="Indonesia">Indonesia</option>
+        <option value="Ireland">Ireland</option>
+        <option value="Japan">Japan</option>
+        <option value="Netherlands">Netherlands</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="Russia">Russia</option>
+        <option value="Saudi Arabia">Saudi Arabia</option>
+        <option value="Sri Lanka">Sri Lanka</option>
+        <option value="Sultanate of Oman">Sultanate of Oman</option>
+        <option value="Thailand">Thailand</option>
+        <option value="United Arab Emirates">United Arab Emirates</option>
+        <option value="United States of America">United States of America</option>
+        <option value="Uzbekistan">Uzbekistan</option>
+        <option value="Vietnam">Vietnam</option>
+
         </select>
       </label>
       {/* City */}
       <label>
-        City:
-        <select name="city" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="Not Applicable">Not Applicable</option>
-            <option value="Bangkok">Bangkok</option>
-            <option value="Toronto">Toronto</option>
-            <option value="Tampere">Tampere</option>
-            <option value="Munich">Munich</option>
-            <option value="Tokyo">Tokyo</option>
-            <option value="Vancouver">Vancouver</option>
-            <option value="Guangzhou">Guangzhou</option>
-            <option value="Hanoi">Hanoi</option>
-            <option value="Meishan">Meishan</option>
-            <option value="Duqm">Duqm</option>
-            <option value="Colombo">Colombo</option>
-            <option value="Cairo">Cairo</option>
-            <option value="Susono">Susono</option>
-            <option value="Jeddah">Jeddah</option>
-            <option value="Rotterdam">Rotterdam</option>
-            <option value="Letterkenny">Letterkenny</option>
-            <option value="Lahore">Lahore</option>
-            <option value="Beverly Hills">Beverly Hills</option>
-            <option value="Berlin">Berlin</option>
-            <option value="Bekasi">Bekasi</option>
-            <option value="Padalarang">Padalarang</option>
-            <option value="Ho Chi Minh City">Ho Chi Minh City</option>
-            <option value="Brentwood">Brentwood</option>
-            <option value="York">York</option>
-            <option value="Shanghai">Shanghai</option>
-            <option value="Adelaide">Adelaide</option>
-            <option value="Portland">Portland</option>
-            <option value="Tashkent">Tashkent</option>
-            <option value="Yuzhno-Sakhalinsk">Yuzhno-Sakhalinsk</option>
-            <option value="West Palm Beach">West Palm Beach</option>
-            <option value="Sydney">Sydney</option>
-            <option value="Fishers">Fishers</option>
-            <option value="Chicago">Chicago</option>
-            <option value="Aghdam">Aghdam</option>
-            <option value="Saint Paul">Saint Paul</option>
-            <option value="Boston">Boston</option>
-            <option value="Gelephu">Gelephu</option>
-            <option value="Dubai">Dubai</option>
-            <option value="Montréal">Montréal</option>
-            <option value="Hong Kong">Hong Kong</option>
-            <option value="New York City">New York City</option>
-            <option value="Gurugram">Gurugram</option>
-        </select>
-      </label>
+  City:
+  <select name="city" onChange={handleChange}>
+    <option value="">All</option>
+    <option value="Adelaide">Adelaide</option>
+    <option value="Aghdam">Aghdam</option>
+    <option value="Bangkok">Bangkok</option>
+    <option value="Bekasi">Bekasi</option>
+    <option value="Berlin">Berlin</option>
+    <option value="Beverly Hills">Beverly Hills</option>
+    <option value="Boston">Boston</option>
+    <option value="Brentwood">Brentwood</option>
+    <option value="Cairo">Cairo</option>
+    <option value="Chicago">Chicago</option>
+    <option value="Colombo">Colombo</option>
+    <option value="Duqm">Duqm</option>
+    <option value="Dubai">Dubai</option>
+    <option value="Fishers">Fishers</option>
+    <option value="Gelephu">Gelephu</option>
+    <option value="Guangzhou">Guangzhou</option>
+    <option value="Gurugram">Gurugram</option>
+    <option value="Hanoi">Hanoi</option>
+    <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+    <option value="Hong Kong">Hong Kong</option>
+    <option value="Jeddah">Jeddah</option>
+    <option value="Lahore">Lahore</option>
+    <option value="Letterkenny">Letterkenny</option>
+    <option value="Meishan">Meishan</option>
+    <option value="Montréal">Montréal</option>
+    <option value="Munich">Munich</option>
+    <option value="New York City">New York City</option>
+    <option value="Not Applicable">Not Applicable</option>
+    <option value="Padalarang">Padalarang</option>
+    <option value="Portland">Portland</option>
+    <option value="Rotterdam">Rotterdam</option>
+    <option value="Saint Paul">Saint Paul</option>
+    <option value="Shanghai">Shanghai</option>
+    <option value="Susono">Susono</option>
+    <option value="Sydney">Sydney</option>
+    <option value="Tampere">Tampere</option>
+    <option value="Tashkent">Tashkent</option>
+    <option value="Tokyo">Tokyo</option>
+    <option value="Toronto">Toronto</option>
+    <option value="Vancouver">Vancouver</option>
+    <option value="West Palm Beach">West Palm Beach</option>
+    <option value="York">York</option>
+    <option value="Yuzhno-Sakhalinsk">Yuzhno-Sakhalinsk</option>
+  </select>
+</label>
       
       {/* Ownership form */}
       <label>
@@ -176,7 +179,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
       </label>
       {/* PR Year */}
       <label>
-        Year of First PR:
+        Year of Initiation:
         <select name="PR_year" onChange={handleChange}>
             <option value="">All</option>
             <option value="2003">2003</option>
@@ -201,7 +204,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
     
       {/* Keywords Used */}
       <label>
-        Keywords Used:
+        Keywords Used for Nexis Uni:
         <select name="keywords" onChange={handleChange}>
             <option value="">All</option>
             <option value="Keywords used in Nexis Uni: Masterplan AND Urban AND City AND Construction AND Development AND Project AND Land">Keywords used in Nexis Uni: Masterplan AND Urban AND City AND Construction AND Development AND Project AND Land</option>
@@ -282,20 +285,16 @@ const ProjectFilters = ({ filters, setFilters }) => {
             <option value="A‑Seven Corporation">A‑Seven Corporation</option>
             <option value="Baku State Design Institute">Baku State Design Institute</option>
             <option value="Biastekno (design of residential buildings)">Biastekno (design of residential buildings)</option>
-            <option value="Bjarke Ingels Group">Bjarke Ingels Group</option>
             <option value="Bjarke Ingels Group (BIG)">Bjarke Ingels Group (BIG)</option>
             <option value="Bradfield Development Authority">Bradfield Development Authority</option>
             <option value="Breathe Architects">Breathe Architects</option>
-            <option value="California Forever">California Forever</option>
-            <option value="CapitaLand Group,  UOA Group">CapitaLand Group,  UOA Group</option>
+            <option value="CapitaLand Group, UOA Group">CapitaLand Group, UOA Group</option>
             <option value="Central Landscape Architecture (masterplan), AECOM (consultant)">Central Landscape Architecture (masterplan), AECOM (consultant)</option>
-            <option value="commissioned by Donegal County Council, led by the Regeneration and Development Team and is funded by the Urban Regeneration and Development Fund (URDF)">commissioned by Donegal County Council, led by the Regeneration and Development Team and is funded by the Urban Regeneration and Development Fund (URDF)</option>
             <option value="Cross Works">Cross Works</option>
             <option value="Distance Studio Consultants (DSC)">Distance Studio Consultants (DSC)</option>
             <option value="DP Architects (master plan), DP Green, DP Urban">DP Architects (master plan), DP Green, DP Urban</option>
             <option value="DP Architects (masterplan), Ramboll (mobility masterplan), SOM (108‑story Financial Tower design)">DP Architects (masterplan), Ramboll (mobility masterplan), SOM (108‑story Financial Tower design)</option>
-            <option value="Foster + Partners">Foster + Partners</option>
-            <option value="Foster and Partners">Foster and Partners</option>
+            <option value="Foster + Partners">Foster + Partners</option>
             <option value="HCMA Architecture + Design (lead), structural by Fast + Epp">HCMA Architecture + Design (lead), structural by Fast + Epp</option>
             <option value="HKS Architects">HKS Architects</option>
             <option value="Hong Kong Civil Engineering & Development Department (CEDD)">Hong Kong Civil Engineering & Development Department (CEDD)</option>
@@ -334,16 +333,16 @@ const ProjectFilters = ({ filters, setFilters }) => {
       <label>
         Visualization Agency:
         <select name="visualizer" onChange={handleChange}>
-            <option value="">All</option>
-            <option value="Beauty & The Bit">Beauty & The Bit</option>
-            <option value="Beauty & The Bit (image production)">Beauty & The Bit (image production)</option>
-            <option value="Brick Visual / Atchain">Brick Visual / Atchain</option>
-            <option value="Greenspace">Greenspace</option>
-            <option value="In-house renderings">In-house renderings</option>
-            <option value="NOAN Architects">NOAN Architects</option>
-            <option value="Not available">Not available</option>
-            <option value="Part of in-house NEOM design team">Part of in-house NEOM design team</option>
-            <option value="SNT Visual">SNT Visual</option>
+        <option value="">All</option>
+        <option value="Beauty & The Bit">Beauty & The Bit</option>
+        <option value="Brick Visual / Atchain">Brick Visual / Atchain</option>
+        <option value="Greenspace">Greenspace</option>
+        <option value="In-house renderings">In-house renderings</option>
+        <option value="NOAN Architects">NOAN Architects</option>
+        <option value="Not available">Not available</option>
+        <option value="Part of in-house NEOM design team">Part of in-house NEOM design team</option>
+        <option value="SNT Visual">SNT Visual</option>
+
         </select>
       </label>
       
