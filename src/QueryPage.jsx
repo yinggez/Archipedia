@@ -134,7 +134,7 @@ function QueryPage() {
         collapseRef.current.open = false;
       }
       try {
-  
+        console.log(project_filters);
         const joinMedia = Object.values(media_columns).some(val => val !== false);
         const joinAnalysis = Object.values(analysis_columns).some(val => val !== false);
         const filterMedia = Object.values(media_filters).some(val => val !== '');
