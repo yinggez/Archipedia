@@ -44,24 +44,10 @@ const SidebarFilters = ({ media_filters, setMedia_filters, analysis_filters, set
             </label>
           </fieldset>
     
-          <fieldset>
-            <legend>Filter based on Media Analysis</legend>
-            {/* Tags */} 
-      
-            {Object.entries(tags).map(([fieldName, options]) => (
-                <label key={fieldName}>
-                    {fieldName.replace(/_/g, ' ').replace(/\b\w/g, c => c.toUpperCase())}:
-                    <select name={fieldName} onChange={handleAnalysisChange}>
-                    <option value="">/</option>
-                    {options.map((opt, i) => (
-                        <option key={i} value={opt}>{opt}</option>
-                    ))}
-                    </select>
-                </label>
-                ))}
-          </fieldset>
+         
         </div>
       );
     };
-    
+  
     export default SidebarFilters;
+    

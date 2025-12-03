@@ -1,7 +1,7 @@
 import './column.css'
 import { useEffect, useState, useRef } from 'react'
 
-const ColumnSelector = ({ columns, setColumns, media_columns, setMedia_columns, analysis_columns, setAnalysis_columns, collapseRef }) => {
+const ColumnSelector = ({ columns, setColumns, media_columns, setMedia_columns, collapseRef }) => {
   const [showAll, setShowAll] = useState(true); // default selected
 
   // Update all columns when showAll changes
@@ -16,7 +16,7 @@ const ColumnSelector = ({ columns, setColumns, media_columns, setMedia_columns, 
 
     setColumns(prev => toggleAll(prev, showAll));
     setMedia_columns(prev => toggleAll(prev, showAll));
-    setAnalysis_columns(prev => toggleAll(prev, showAll));
+
   }, [showAll]);
   const handleCheckboxChange = (e, setState) => {
     setState((prev) => ({ ...prev, [e.target.name]: e.target.checked }));
@@ -36,7 +36,7 @@ const ColumnSelector = ({ columns, setColumns, media_columns, setMedia_columns, 
         <strong>Show All Info</strong>
       </label>
 
-      <div class="fieldsets-container">
+      <div className="fieldsets-container">
       <fieldset className="border p-4 w-1/2">
         <legend>Project Columns</legend>
         {Object.entries(columns).map(([key, val]) => (
@@ -85,20 +85,7 @@ const ColumnSelector = ({ columns, setColumns, media_columns, setMedia_columns, 
         ))}
       </fieldset>
 
-      <fieldset className="border p-4 w-1/2">
-        <legend>Analysis Columns</legend>
-        {Object.entries(analysis_columns).map(([key, val]) => (
-          <label key={key}>
-            <input
-              type="checkbox"
-              name={key}
-              checked={val}
-              onChange={(e) => handleCheckboxChange(e, setAnalysis_columns)}
-            />
-            {key}
-          </label>
-        ))}
-      </fieldset>
+      
       </div>
     </details>
   );
