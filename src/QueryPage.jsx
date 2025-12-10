@@ -35,6 +35,8 @@ function QueryPage() {
       firm: '',
       visualizer: '',
       keywords: '',
+      project_type: '',
+      status: ''
     })
 
   

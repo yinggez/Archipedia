@@ -16,7 +16,9 @@ const ProjectFilters = ({ filters, setFilters }) => {
       "ownership_form",
       "firm",
       "visualizer",
-      "keywords"
+      "keywords",
+      "project_type",
+      "status"
     ];
 
     const [dropdownValues, setDropdownValues] = useState({
@@ -29,7 +31,9 @@ const ProjectFilters = ({ filters, setFilters }) => {
       ownership_form: [],
       firm: [],
       visualizer: [],
-      keywords: []
+      keywords: [],
+      project_type: [],
+      status: []
     });
     
     async function fetchDropdownValues(columnName) {
@@ -38,7 +42,7 @@ const ProjectFilters = ({ filters, setFilters }) => {
         .select(columnName);
     
       if (error) return [];
-    
+      
       const values = [...new Set(
         data
           .map(r => r[columnName])
