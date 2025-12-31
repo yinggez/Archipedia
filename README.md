@@ -1,6 +1,6 @@
 # Archipedia
-database interface for archpedia
-visit our actual website for ArchiPedia!
+database interface for archpedia<br/>
+visit our actual website for ArchiPedia!<br/>
 https://archipedia.vercel.app
 
 
